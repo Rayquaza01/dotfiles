@@ -34,7 +34,7 @@ set undodir=~/vimfiles/Undo/ "enables undofile
 set backup
 set backupdir=~/vimfiles/Backup/ "enables backupdir
 set hidden "allows buffers to be hidden
-set colorcolumn=80 "color 80th column as reference
+set colorcolumn=90 "color 90th column as reference
 colorscheme PaperColor
 " Ctrl-S for save
 nnoremap <c-s> :w<CR>
