@@ -2,8 +2,10 @@
     "directories": ["~/vimfiles/Backup", "~/vimfiles/Undo", "~/git"],
     "link": {
         ".vimrc": "~/.vimrc",
-        ".eslintrc.json": "~/.eslintrc.json",
-        ".prettier.json": "~/.prettier.json",
         "hotkeys.ahk": "~/hotkeys.ahk"
+    },
+    "copy": {
+        ".eslintrc.json": "~/.eslintrc.json",
+        ".prettierrc.json": "~/.prettierrc.json"
     }
 }
