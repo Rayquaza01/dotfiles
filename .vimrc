@@ -3,7 +3,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/goyo.vim'
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 Plug 'reedes/vim-pencil'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
