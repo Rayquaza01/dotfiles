@@ -44,7 +44,6 @@ nnoremap gs :Gstatus<CR>
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " prevent $ in ins mode from selecting new line
 vnoremap $ $h
-command! PrettyJSON :%!python -m json.tool<CR>
 " ignore .gitignore files in ctrlp
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 " show buffers at top
