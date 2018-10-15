@@ -5,6 +5,8 @@ Plug 'junegunn/goyo.vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 Plug 'reedes/vim-pencil'
+Plug 'romainl/vim-qf'
+Plug 'skywind3000/asyncrun.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
@@ -15,6 +17,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'Vimjas/vim-python-pep8-indent'
 call plug#end()
 if has("win32")
     set guifont=Roboto_Mono_for_Powerline:h11:cANSI:qDRAFT "patched font from here: https://github.com/yurakl/fonts
@@ -51,10 +54,11 @@ let g:airline#extensions#tabline#enabled = 1
 " let g:AutoCloseProtectedRegions = ['Comment']
 let g:html_indent_style1 = "inc"
 let g:html_indent_script1 = "inc"
-command! Diction :!diction <cword> -d | less
-command! DictionRelated :!diction <cword> -r | less
-command! DictionPhrases :!diction <cword> -ph | less
 autocmd FileType autohotkey setlocal commentstring=;\ %s
+" format with prettier on save
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
+
 augroup Linting
     autocmd!
     autocmd FileType javascript setlocal makeprg=eslint\ --format\ unix
@@ -63,6 +67,10 @@ augroup Linting
     autocmd FileType markdown setlocal makeprg=proselint
     autocmd BufRead,BufWritePost *.js,*.py,*.cpp,*.md silent Make <afile>
 augroup END
-" format with prettier on save
-let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
+
+augroup Help
+    autocmd!
+    autocmd FileType python setlocal keywordprg=:Dispatch\ pydoc\ <cword>
+    autocmd FileType javascript,html,css setlocal keywordprg=:Dispatch\ mdn\ <cword>
+    autocmd FileType markdown setlocal keywordprg=:Dispatch\ diction\ <cword>\ -d
+augroup END
