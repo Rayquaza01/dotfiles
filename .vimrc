@@ -6,7 +6,6 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 Plug 'reedes/vim-pencil'
 Plug 'romainl/vim-qf'
-Plug 'skywind3000/asyncrun.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
@@ -57,7 +56,6 @@ let g:html_indent_script1 = "inc"
 autocmd FileType autohotkey setlocal commentstring=;\ %s
 " format with prettier on save
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
 
 augroup Linting
     autocmd!
@@ -65,6 +63,7 @@ augroup Linting
     autocmd FileType python setlocal makeprg=pycodestyle\ --ignore=E501
     autocmd FileType cpp setlocal makeprg=gcc\ -fsyntax-only
     autocmd FileType markdown setlocal makeprg=proselint
+    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
     autocmd BufRead,BufWritePost *.js,*.py,*.cpp,*.md silent Make <afile>
 augroup END
 
