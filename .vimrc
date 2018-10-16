@@ -56,11 +56,13 @@ let g:html_indent_script1 = "inc"
 autocmd FileType autohotkey setlocal commentstring=;\ %s
 " format with prettier on save
 let g:prettier#autoformat = 0
+command! Format :normal gggqG
 
 augroup Linting
     autocmd!
     autocmd FileType javascript setlocal makeprg=eslint\ --format\ unix
     autocmd FileType python setlocal makeprg=pycodestyle\ --ignore=E501
+    autocmd FileType python setlocal formatprg=autopep8\ -
     autocmd FileType cpp setlocal makeprg=gcc\ -fsyntax-only
     autocmd FileType markdown setlocal makeprg=proselint
     autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
