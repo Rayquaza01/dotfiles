@@ -87,6 +87,13 @@ augroup Linting
     autocmd BufRead,BufWritePost *.js,*.py,*.cpp,*.md silent Make <afile>
 augroup END
 
+augroup CSV
+    autocmd!
+    autocmd BufWritePre *.csv %UnArrangeColumn
+    autocmd BufWritePost *.csv %ArrangeColumn!
+    autocmd FileType csv %ArrangeColumn!
+augroup END
+
 augroup Help
     autocmd!
     autocmd FileType python setlocal keywordprg=:Dispatch\ pydoc\ <cword>
