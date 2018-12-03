@@ -1,7 +1,9 @@
 call plug#begin("~/vimfiles/plugged")
+Plug 'chrisbra/csv.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 Plug 'reedes/vim-pencil'
@@ -18,6 +20,22 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Vimjas/vim-python-pep8-indent'
 call plug#end()
+if !has("gui_running")
+    " special cursors
+    let &t_ti.="\e[1 q"
+    let &t_SI.="\e[5 q"
+    let &t_EI.="\e[1 q"
+    let &t_te.="\e[0 q"
+    if has("win32")
+        " ConEmu support
+        set term=xterm
+        set t_Co=256
+        let &t_AB="\e[48;5;%dm"
+        let &t_AF="\e[38;5;%dm"
+        inoremap <Char-0x07F> <BS>
+        nnoremap <Char-0x07F> <BS>
+    endif
+endif
 if has("win32")
     set guifont=Roboto_Mono_for_Powerline:h11:cANSI:qDRAFT "patched font from here: https://github.com/yurakl/fonts
     set guioptions=+c "makes vim more consoley
