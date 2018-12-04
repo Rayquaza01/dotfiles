@@ -90,8 +90,7 @@ augroup END
 augroup CSV
     autocmd!
     autocmd BufWritePre *.csv %UnArrangeColumn
-    autocmd BufWritePost *.csv %ArrangeColumn!
-    autocmd FileType csv %ArrangeColumn!
+    autocmd BufRead,BufWritePost *.csv %ArrangeColumn!
 augroup END
 
 augroup Help
