@@ -8,6 +8,7 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 Plug 'reedes/vim-pencil'
 Plug 'romainl/vim-qf'
+Plug 'tommcdo/vim-lion'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
@@ -22,10 +23,13 @@ Plug 'Vimjas/vim-python-pep8-indent'
 call plug#end()
 if !has("gui_running")
     " special cursors
-    let &t_ti.="\e[1 q"
-    let &t_SI.="\e[5 q"
-    let &t_EI.="\e[1 q"
-    let &t_te.="\e[0 q"
+    if exists('$TMUX')
+        let &t_SI = "\ePtmux;\e\e[5 q\e\\"
+        let &t_EI = "\ePtmux;\e\e[2 q\e\\"
+    else
+        let &t_SI = "\e[5 q"
+        let &t_EI = "\e[2 q"
+    endif
     if has("win32")
         " ConEmu support
         set term=xterm
