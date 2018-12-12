@@ -86,7 +86,6 @@ augroup Linting
     autocmd FileType python setlocal makeprg=pycodestyle\ --ignore=E501
     autocmd FileType python setlocal formatprg=autopep8\ -
     autocmd FileType cpp setlocal makeprg=gcc\ -fsyntax-only
-    autocmd FileType markdown setlocal makeprg=proselint
     autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
     autocmd BufRead,BufWritePost *.js,*.py,*.cpp,*.md silent Make <afile>
 augroup END
