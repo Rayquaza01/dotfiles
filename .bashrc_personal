@@ -1,0 +1,8 @@
+# use 256 color
+export TERM=screen-256color
+# change path
+export PATH="$PATH:~/.local/bin/"
+# open tmux (or attach old session on startup)
+[ -z "$TMUX" ] && { tmux attach || exec tmux new-session && exit; }
+# launch screenfetch, if exists
+if [ -f /usr/bin/screenfetch ]; then screenfetch; fi

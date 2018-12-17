@@ -2,7 +2,8 @@
     "directories": ["~/vimfiles/Backup", "~/vimfiles/Undo", "~/git"],
     "link": {
         ".vimrc": "~/.vimrc",
-        "hotkeys.ahk": "~/hotkeys.ahk"
+        "hotkeys.ahk": "~/hotkeys.ahk",
+        ".bashrc_personal": "~/.bashrc_personal"
     },
     "copy": {
         ".eslintrc.json": "~/.eslintrc.json",
