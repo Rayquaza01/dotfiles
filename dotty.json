@@ -1,5 +1,5 @@
 {
-    "directories": ["~/vimfiles/Backup", "~/vimfiles/Undo", "~/git"],
+    "directories": ["~/vimfiles/Backup", "~/vimfiles/Undo", "~/git", "~/.config"],
     "link": {
         ".vimrc": "~/.vimrc",
         "hotkeys.ahk": "~/hotkeys.ahk",
@@ -7,6 +7,7 @@
     },
     "copy": {
         ".eslintrc.json": "~/.eslintrc.json",
-        ".prettierrc.json": "~/.prettierrc.json"
+        ".prettierrc.json": "~/.prettierrc.json",
+        "pycodestyle": "~/.config/pycodestyle"
     }
 }

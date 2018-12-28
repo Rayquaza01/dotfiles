@@ -5,7 +5,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 Plug 'reedes/vim-pencil'
 Plug 'romainl/vim-qf'
 Plug 'tommcdo/vim-lion'
@@ -20,6 +19,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'w0rp/ale'
 call plug#end()
 if !has("gui_running")
     " special cursors
@@ -79,15 +79,23 @@ autocmd FileType autohotkey setlocal commentstring=;\ %s
 " format with prettier on save
 let g:prettier#autoformat = 0
 command! Format :normal gggqG
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+let g:ale_open_list = 1
+let g:ale_lint_on_text_changed = 'never'
 
 augroup Linting
     autocmd!
-    autocmd FileType javascript setlocal makeprg=eslint\ --format\ unix
-    autocmd FileType python setlocal makeprg=pycodestyle\ --ignore=E501
-    autocmd FileType python setlocal formatprg=autopep8\ -
-    autocmd FileType cpp setlocal makeprg=gcc\ -fsyntax-only
-    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
-    autocmd BufRead,BufWritePost *.js,*.py,*.cpp,*.md silent Make <afile>
+    autocmd FileType javascript,css,json,markdown let b:ale_fixers = ["prettier"]
+    autocmd FileType python let b:ale_fixers = ["autopep8"]
+    autocmd FileType python let b:ale_linters = ["pycodestyle"]
+    autocmd BufWritePre *.js,*.css,*.md,*.py ALEFix
+"     autocmd FileType javascript setlocal makeprg=eslint\ --format\ unix
+"     autocmd FileType python setlocal makeprg=pycodestyle\ --ignore=E501
+"     autocmd FileType python setlocal formatprg=autopep8\ -
+"     autocmd FileType cpp setlocal makeprg=gcc\ -fsyntax-only
+"     autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
+"     autocmd BufRead,BufWritePost *.js,*.py,*.cpp,*.md silent Make <afile>
 augroup END
 
 augroup CSV

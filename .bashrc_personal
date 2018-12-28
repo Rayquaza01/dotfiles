@@ -1,3 +1,6 @@
+alias nightly="firefox-trunk"
+alias reddit="rtv --enable-media"
+
 # use 256 color
 export TERM=screen-256color
 # change path
