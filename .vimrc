@@ -2,12 +2,11 @@ call plug#begin("~/vimfiles/plugged")
 Plug 'chrisbra/csv.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'reedes/vim-pencil'
-Plug 'romainl/vim-qf'
-Plug 'tommcdo/vim-lion'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
@@ -60,8 +59,6 @@ set backupdir=~/vimfiles/Backup/ "enables backupdir
 set hidden "allows buffers to be hidden
 set colorcolumn=90 "color 90th column as reference
 colorscheme PaperColor
-" Ctrl-S for save
-nnoremap <c-s> :w<CR>
 " use gs for git status
 nnoremap gs :Gstatus<CR>
 " Enter in ins-completion-menu confirms item
@@ -72,35 +69,42 @@ vnoremap $ $h
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 " show buffers at top
 let g:airline#extensions#tabline#enabled = 1
-" let g:AutoCloseProtectedRegions = ['Comment']
+" indent html script and style tags correctly
 let g:html_indent_style1 = "inc"
 let g:html_indent_script1 = "inc"
+" fix commentary on ahk files
 autocmd FileType autohotkey setlocal commentstring=;\ %s
-" format with prettier on save
-let g:prettier#autoformat = 0
-command! Format :normal gggqG
+
+" ale conifgs
+" use quickfix instead of location list
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
+" open quickfix after lint (if applicable)
 let g:ale_open_list = 1
-let g:ale_lint_on_text_changed = 'never'
+" disable echo for errors (fixes cursor disappearing error)
+let g:ale_echo_cursor = 0
+" disable sign gutter
+let g:ale_set_signs = 0
+" only lint on save
+let g:ale_lint_on_text_changed = "never"
 
 augroup Linting
     autocmd!
+    " ale fixers only prettier for js, css, json, md
+    " autopep8 for py
     autocmd FileType javascript,css,json,markdown let b:ale_fixers = ["prettier"]
     autocmd FileType python let b:ale_fixers = ["autopep8"]
+    " only use pycodestyle for linting on python
     autocmd FileType python let b:ale_linters = ["pycodestyle"]
+    " fix before saving
     autocmd BufWritePre *.js,*.css,*.md,*.py ALEFix
-"     autocmd FileType javascript setlocal makeprg=eslint\ --format\ unix
-"     autocmd FileType python setlocal makeprg=pycodestyle\ --ignore=E501
-"     autocmd FileType python setlocal formatprg=autopep8\ -
-"     autocmd FileType cpp setlocal makeprg=gcc\ -fsyntax-only
-"     autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
-"     autocmd BufRead,BufWritePost *.js,*.py,*.cpp,*.md silent Make <afile>
 augroup END
 
 augroup CSV
     autocmd!
+    " compact csv before saving
     autocmd BufWritePre *.csv %UnArrangeColumn
+    " expand csv on read, after saving
     autocmd BufRead,BufWritePost *.csv %ArrangeColumn!
 augroup END
 
