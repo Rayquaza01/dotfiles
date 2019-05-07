@@ -32,7 +32,6 @@ if !has("gui_running")
     if has("win32")
         " ConEmu support
         set term=xterm
-        set t_Co=256
         let &t_AB="\e[48;5;%dm"
         let &t_AF="\e[38;5;%dm"
         inoremap <Char-0x07F> <BS>
@@ -43,6 +42,7 @@ if has("win32")
     set guifont=Roboto_Mono_for_Powerline:h11:cANSI:qDRAFT "patched font from here: https://github.com/yurakl/fonts
     set guioptions=+c "makes vim more consoley
 endif
+set t_Co=256
 set background=light
 set bo=all "makes vim quiet
 set tabstop=4
@@ -87,6 +87,14 @@ let g:ale_echo_cursor = 0
 let g:ale_set_signs = 0
 " only lint on save
 let g:ale_lint_on_text_changed = "never"
+let g:ale_lint_on_insert_leave = 1
+
+" https://coderwall.com/p/1b30wg/use-solarized-in-your-vim-use-light-during-the-day-and-dark-at-night
+if strftime("%H") >= 6 && strftime("%H") <= 20
+  set background=light
+else
+  set background=dark
+endif
 
 augroup Linting
     autocmd!
@@ -97,7 +105,7 @@ augroup Linting
     " only use pycodestyle for linting on python
     autocmd FileType python let b:ale_linters = ["pycodestyle"]
     " fix before saving
-    autocmd BufWritePre *.js,*.css,*.md,*.py ALEFix
+    " autocmd BufWritePre *.js,*.css,*.py ALEFix
 augroup END
 
 augroup CSV
