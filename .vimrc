@@ -1,6 +1,7 @@
 call plug#begin("~/vimfiles/plugged")
 Plug 'chrisbra/csv.vim'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'dense-analysis/ale'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/goyo.vim'
@@ -19,7 +20,6 @@ Plug 'tpope/vim-vinegar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Vimjas/vim-python-pep8-indent'
-Plug 'w0rp/ale'
 call plug#end()
 if !has("gui_running")
     " special cursors
@@ -120,6 +120,5 @@ augroup END
 augroup Help
     autocmd!
     autocmd FileType python setlocal keywordprg=:Dispatch\ pydoc\ <cword>
-    autocmd FileType javascript,html,css setlocal keywordprg=:Dispatch\ mdn\ <cword>
     autocmd FileType markdown setlocal keywordprg=:Dispatch\ diction\ <cword>\ -d
 augroup END
