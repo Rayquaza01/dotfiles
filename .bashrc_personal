@@ -10,4 +10,4 @@ export PATH="$HOME/.local/bin/:/home/linuxbrew/.linuxbrew/bin/:$PATH"
 # open tmux (or attach old session on startup)
 [ -z "$TMUX" ] && { tmux attach || exec tmux new-session && exit; }
 # launch neofetch, if exists
-if [ -f /usr/bin/neofetch ]; then neofetch; fi
+# if [ -f /usr/bin/neofetch ]; then neofetch; fi

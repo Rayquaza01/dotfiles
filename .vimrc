@@ -6,6 +6,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
+Plug 'mhinz/vim-startify'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'reedes/vim-pencil'
 Plug 'romainl/vim-qf'
@@ -89,6 +90,16 @@ let g:ale_set_signs = 0
 " only lint on save
 let g:ale_lint_on_text_changed = "never"
 let g:ale_lint_on_insert_leave = 1
+
+let g:startify_custom_header = [
+            \ '             o8o                    ',
+            \ '             `"''                   ',
+            \ 'oooo    ooo oooo  ooo. .oo.  .oo.   ',
+            \ ' `88.  .8''  `888  `888P"Y88bP"Y88b  ',
+            \ '  `88..8''    888   888   888   888  ',
+            \ '   `888''     888   888   888   888  ',
+            \ '    `8''     o888o o888o o888o o888o ',
+            \ ]
 
 " https://coderwall.com/p/1b30wg/use-solarized-in-your-vim-use-light-during-the-day-and-dark-at-night
 if strftime("%H") >= 6 && strftime("%H") <= 20
