@@ -1,6 +1,6 @@
 alias cls="clear"
 alias nightly="firefox-trunk"
-alias reddit="rtv --enable-media"
+alias t="tmux"
 
 # use 256 color
 export TERM=screen-256color
@@ -8,6 +8,7 @@ export TERM=screen-256color
 export PATH="$HOME/.local/bin/:/home/linuxbrew/.linuxbrew/bin/:$PATH"
 
 # open tmux (or attach old session on startup)
-[ -z "$TMUX" ] && { tmux attach || exec tmux new-session && exit; }
+[ -z "$TMUX" ] && { tmux attach || tmux new-session; }
 # launch neofetch, if exists
 # if [ -f /usr/bin/neofetch ]; then neofetch; fi
+eval "$(thefuck --alias)"

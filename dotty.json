@@ -2,6 +2,7 @@
     "directories": ["~/vimfiles/Backup", "~/vimfiles/Undo", "~/git", "~/.config"],
     "link": {
         ".vimrc": "~/.vimrc",
+        ".tmux.conf": "~/.tmux.conf",
         "hotkeys.ahk": "~/hotkeys.ahk",
         ".bashrc_personal": "~/.bashrc_personal"
     },

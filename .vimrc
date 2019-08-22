@@ -1,6 +1,5 @@
 call plug#begin("~/vimfiles/plugged")
 Plug 'chrisbra/csv.vim'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dense-analysis/ale'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -36,8 +35,8 @@ if !has("gui_running")
         set term=xterm
         let &t_AB="\e[48;5;%dm"
         let &t_AF="\e[38;5;%dm"
-        inoremap <Char-0x07F> <BS>
-        nnoremap <Char-0x07F> <BS>
+        imap <Char-0x07F> <BS>
+        nmap <Char-0x07F> <BS>
     endif
 endif
 if has("win32")
@@ -47,7 +46,7 @@ endif
 set t_Co=256
 set background=light
 set bo=all "makes vim quiet
-set tabstop=4
+set softtabstop=4
 set shiftwidth=4
 set expandtab "tabs to spaces
 set softtabstop=4 "backspace 4 times
@@ -62,15 +61,18 @@ set hidden "allows buffers to be hidden
 set colorcolumn=90 "color 90th column as reference
 colorscheme PaperColor
 " use gs for git status
-nnoremap gs :Gstatus<CR>
+nmap gs :Gstatus<CR>
 " Enter in ins-completion-menu confirms item
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+imap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " prevent $ in ins mode from selecting new line
-vnoremap $ $h
+vmap $ $h
 " ignore .gitignore files in ctrlp
+nnoremap <leader>b :b<space>
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 " show buffers at top
 let g:airline#extensions#tabline#enabled = 1
+" put numbers next to buffers for quick switching
+let g:airline#extensions#tabline#buffer_nr_show = 1
 " indent html script and style tags correctly
 let g:html_indent_style1 = "inc"
 let g:html_indent_script1 = "inc"
@@ -91,6 +93,7 @@ let g:ale_set_signs = 0
 let g:ale_lint_on_text_changed = "never"
 let g:ale_lint_on_insert_leave = 1
 
+" put fancy startup logo
 let g:startify_custom_header = [
             \ '             o8o                    ',
             \ '             `"''                   ',
@@ -131,5 +134,5 @@ augroup END
 augroup Help
     autocmd!
     autocmd FileType python setlocal keywordprg=:Dispatch\ pydoc\ <cword>
-    autocmd FileType markdown setlocal keywordprg=:Dispatch\ diction\ <cword>\ -d
+    autocmd FileType markdown setlocal keywordprg=:Dispatch\ diction.py\ <cword>\ -d
 augroup END
