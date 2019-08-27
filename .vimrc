@@ -63,12 +63,11 @@ colorscheme PaperColor
 " use gs for git status
 nmap gs :Gstatus<CR>
 " Enter in ins-completion-menu confirms item
-imap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " prevent $ in ins mode from selecting new line
 vmap $ $h
 " ignore .gitignore files in ctrlp
-nnoremap <leader>b :b<space>
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+nnoremap <leader>b :ls!<CR>:b<space>
 " show buffers at top
 let g:airline#extensions#tabline#enabled = 1
 " put numbers next to buffers for quick switching
