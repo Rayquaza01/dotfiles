@@ -5,6 +5,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
+Plug 'junegunn/vim-easy-align'
 Plug 'mhinz/vim-startify'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'reedes/vim-pencil'
