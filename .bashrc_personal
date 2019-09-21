@@ -1,6 +1,8 @@
 alias cls="clear"
 alias nightly="firefox-trunk"
 alias t="tmux"
+alias cped="copyedit.py"
+alias yt-thumb="youtube-dl --extract-audio --audio-format mp3 --add-metadata --xattrs --embed-thumbnail"
 
 # use 256 color
 export TERM=screen-256color

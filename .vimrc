@@ -92,6 +92,8 @@ let g:ale_set_signs = 0
 " only lint on save
 let g:ale_lint_on_text_changed = "never"
 let g:ale_lint_on_insert_leave = 1
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 " put fancy startup logo
 let g:startify_custom_header = [
