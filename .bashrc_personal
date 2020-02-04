@@ -10,6 +10,13 @@ export TERM=screen-256color
 export PATH="$HOME/.local/bin/:$PATH"
 
 # open tmux (or attach old session on startup)
-[ -z "$TMUX" ] && { tmux attach || tmux new-session; }
+terminal=$(neofetch term)
+
+if [[ $terminal == *"gnome"* ]]; then
+    if [ -z "$TMUX" ]; then
+        tmux attach || tmux new-session;
+    fi
+fi
+# [ -z "$TMUX" && terminal != "term: vscode" ] && { tmux attach || tmux new-session; }
 # launch neofetch, if exists
 # if [ -f /usr/bin/neofetch ]; then neofetch; fi
