@@ -1,12 +1,10 @@
 call plug#begin("~/vimfiles/plugged")
-Plug 'chrisbra/csv.vim'
 Plug 'dense-analysis/ale'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
 Plug 'junegunn/vim-easy-align'
-Plug 'mhinz/vim-startify'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'reedes/vim-pencil'
 Plug 'romainl/vim-qf'
@@ -28,8 +26,8 @@ if !has("gui_running")
         let &t_SI = "\ePtmux;\e\e[5 q\e\\"
         let &t_EI = "\ePtmux;\e\e[2 q\e\\"
     else
-        let &t_SI = "\e[5 q"
-        let &t_EI = "\e[2 q"
+        " let &t_SI = "\e[5 q"
+        " let &t_EI = "\e[2 q"
     endif
     if has("win32")
         " ConEmu support
@@ -78,6 +76,7 @@ let g:html_indent_style1 = "inc"
 let g:html_indent_script1 = "inc"
 " fix commentary on ahk files
 autocmd FileType autohotkey setlocal commentstring=;\ %s
+autocmd FileType make setlocal noexpandtab
 
 " ale conifgs
 " use quickfix instead of location list
@@ -95,23 +94,14 @@ let g:ale_lint_on_insert_leave = 1
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
-" put fancy startup logo
-let g:startify_custom_header = [
-            \ '             o8o                    ',
-            \ '             `"''                   ',
-            \ 'oooo    ooo oooo  ooo. .oo.  .oo.   ',
-            \ ' `88.  .8''  `888  `888P"Y88bP"Y88b  ',
-            \ '  `88..8''    888   888   888   888  ',
-            \ '   `888''     888   888   888   888  ',
-            \ '    `8''     o888o o888o o888o o888o ',
-            \ ]
-
 " https://coderwall.com/p/1b30wg/use-solarized-in-your-vim-use-light-during-the-day-and-dark-at-night
 if strftime("%H") >= 6 && strftime("%H") <= 20
   set background=light
 else
   set background=dark
 endif
+
+autocmd BufWinEnter *.* silent loadview
 
 augroup Linting
     autocmd!
