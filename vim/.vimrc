@@ -647,7 +647,7 @@ lua << EOF
         sections = {
             lualine_a = { 'mode' },
             lualine_b = { 'branch', 'diff', 'diagnostics' },
-            lualine_c = { 'filename', vim.pesc('coc#status'), 'b:coc_current_function' },
+            lualine_c = { 'filename', vim.pesc('coc#status'), vim.pesc('b:coc_current_function') },
             lualine_x = { 'ObsessionStatus', 'encoding', 'fileformat', 'filetype' },
             lualine_y = { 'progress' },
             lualine_z = { 'location' }
