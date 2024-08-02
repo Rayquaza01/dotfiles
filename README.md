@@ -2,9 +2,9 @@
 
 Personal dotfiles
 
-# Installing
+## Installing
 
-## Automatic
+### Automatic
 
 You can install the dotfiles using an interactive install script. Requires [`gum`](https://github.com/charmbracelet/gum).
 
@@ -13,7 +13,7 @@ Select the dotfiles to install, and they will be installed with stow. If install
 > [!NOTE]
 > The file `dotfiles` contains a list of all of the installable dotfiles.
 
-## Manual
+### Manual
 
 `stow` is used to manage the dotfiles.
 
@@ -30,7 +30,7 @@ stow -t ~/ -Dv <dotfile>
 > [!NOTE]
 > You can add the `-n` flag to do a dry run, to ensure it runs correctly.
 
-# Additional Programs
+## Additional Programs
 
 The following programs are needed for the dotfiles to work correctly:
 
