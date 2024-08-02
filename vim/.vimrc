@@ -39,7 +39,6 @@ Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 " prose
-Plug 'junegunn/goyo.vim'
 Plug 'preservim/vim-pencil'
 
 if has('nvim')
@@ -67,6 +66,8 @@ if has('nvim')
 
     Plug 'folke/zen-mode.nvim'
 else
+    Plug 'junegunn/goyo.vim'
+
     Plug 'editorconfig/editorconfig-vim'
 
     Plug 'airblade/vim-gitgutter'
@@ -214,19 +215,22 @@ endif
 
 
 " === GOYO CONFIG ===
+" TODO goyo doesn't work correctly in neovim. Convert goyo config to zen mode
 
-function! s:goyo_enter()
-    PencilSoft
-    setlocal spell
-endfunction
+if !has('nvim')
+    function! s:goyo_enter()
+        PencilSoft
+        setlocal spell
+    endfunction
 
-function! s:goyo_leave()
-    PencilOff
-    setlocal nospell
-endfunction
+    function! s:goyo_leave()
+        PencilOff
+        setlocal nospell
+    endfunction
 
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
+    autocmd! User GoyoEnter nested call <SID>goyo_enter()
+    autocmd! User GoyoLeave nested call <SID>goyo_leave()
+endif
 
 " === FZF CONFIG ===
 
