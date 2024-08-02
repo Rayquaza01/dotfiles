@@ -18,7 +18,6 @@ Plug 'honza/vim-snippets'
 " colorschemes
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'tomasiser/vim-code-dark'
-" Plug 'vim-scripts/tango.vim'
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
 Plug 'simnalamburt/vim-mundo'
@@ -33,8 +32,6 @@ Plug 'junegunn/gv.vim'
 
 Plug 'easymotion/vim-easymotion'
 
-" Plug 'junegunn/rainbow_parentheses.vim'
-
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-easy-align'
 
@@ -45,12 +42,9 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'junegunn/goyo.vim'
 Plug 'preservim/vim-pencil'
 
-" Plug 'Exafunction/codeium.vim'
-
 if has('nvim')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-    " Plug 'windwp/nvim-autopairs'
     Plug 'nvim-tree/nvim-tree.lua'
 
     " Doesn't work with obsession
