@@ -80,8 +80,6 @@ else
 
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-
-    Plug 'francoiscabrol/ranger.vim'
 endif
 
 call plug#end()
