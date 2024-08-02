@@ -41,6 +41,11 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " prose
 Plug 'preservim/vim-pencil'
 
+" follow symlinks, allow version control on dotfiles when editing symlinks
+" https://github.com/tpope/vim-fugitive/issues/147#issuecomment-506960242
+Plug 'aymericbeaumet/vim-symlink'
+Plug 'moll/vim-bbye'
+
 if has('nvim')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
