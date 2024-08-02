@@ -325,7 +325,7 @@ endif
 
 autocmd VimEnter * nested
     \ if !argc() && empty(v:this_session) && filereadable('Session.vim') && !&modified |
-        \   source Session.vim |
+    \   source Session.vim |
     \ endif
 
 " === BEGIN COC CONFIG ===
