@@ -52,7 +52,6 @@ if has('nvim')
 
     Plug 'nvim-tree/nvim-tree.lua'
 
-    " Doesn't work with obsession
     Plug 'HiPhish/rainbow-delimiters.nvim'
 
     Plug 'lewis6991/gitsigns.nvim'
@@ -314,12 +313,6 @@ if has('nvim')
     let g:gitblame_date_format = '%r'
     let g:gitblame_message_template = ' <author>  <date>  <summary>'
 endif
-
-" === IBL CONFIG (VIM) ===
-
-" if has('nvim')
-"     nnoremap yoi :IBLToggle<CR>
-" endif
 
 " === BEGIN COC CONFIG ===
 
