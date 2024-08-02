@@ -507,14 +507,8 @@ xmap <leader>x  <Plug>(coc-convert-snippet)
 if has('nvim')
 
 lua << EOF
-    -- === AUTOPAIRS CONFIG ===
-    -- require('nvim-autopairs').setup({ map_cr = false })
-
     -- === NVIMTREE CONFIG ===
     require('nvim-tree').setup()
-
-    -- === RAINBOW DELIMITERS CONFIG ===
-    -- local rainbow_delimiters = require 'rainbow-delimiters'
 
     -- === IBL CONFIG ===
     require("ibl").setup({
@@ -629,18 +623,6 @@ lua << EOF
 
     -- === NVIM COLORIZER CONFIG ===
     require('colorizer').setup()
-
-    -- === NVIM SCROLLBAR CONFIG ===
-
-    -- require("scrollbar").setup()
-    -- require("scrollbar.handlers.gitsigns").setup()
-
-    -- === CODIUM CONFIG ===
-    -- require('codeium').setup()
-
-    -- === NVIM-HLSLENS CONFIG ===
-    -- require('hlslens').setup()
-
 EOF
 
 endif
