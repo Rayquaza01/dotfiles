@@ -220,7 +220,6 @@ endif
 
 
 " === GOYO CONFIG ===
-" TODO goyo doesn't work correctly in neovim. Convert goyo config to zen mode
 
 if !has('nvim')
     function! s:goyo_enter()
@@ -235,6 +234,9 @@ if !has('nvim')
 
     autocmd! User GoyoEnter nested call <SID>goyo_enter()
     autocmd! User GoyoLeave nested call <SID>goyo_leave()
+else
+    " set goyo as alias for zen mode in neovim
+    command! Goyo :ZenMode
 endif
 
 " === FZF CONFIG ===
@@ -645,6 +647,27 @@ lua << EOF
 
     -- === NVIM COLORIZER CONFIG ===
     require('colorizer').setup()
+
+    -- === ZEN MODE CONFIG ===
+    -- mimic goyo defaults
+    require('zen-mode').setup({
+        window = {
+            height = 0.8,
+            options = {
+                signcolumn='no',
+                number=false,
+                relativenumber=false,
+                colorcolumn='',
+                spell=true
+            }
+        },
+        on_open = function ()
+            vim.cmd('PencilSoft')
+        end,
+        on_close = function ()
+            vim.cmd('PencilOff')
+        end
+    })
 EOF
 
 endif
