@@ -89,9 +89,7 @@ call plug#end()
 " === USER CONFIG ===
 
 set t_Co=256
-if has('nvim')
-    set termguicolors
-endif
+set termguicolors
 
 nnoremap <SPACE> <Nop>
 let g:mapleader=' '
@@ -122,7 +120,9 @@ endif
 set colorcolumn=90
 
 let g:codedark_italics=1
-if !has('gui')
+" use the terminal background instead of codedark's default background
+" doesn't work in gvim
+if !has('gui_running')
     let g:codedark_transparent=1
 endif
 set background=dark
