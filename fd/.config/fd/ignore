@@ -1,5 +1,55 @@
+# version control
 .git/
+
+# javascript
 node_modules/
+
+# trash and temporary files
+.cache/
+cache/
+**/.local/share/Trash/
+**/.local/state/
 *.swp
-.local/share/Trash/
-Unity/Hub/
+temp/
+Temp/
+.tmp/
+
+# application files
+Android/
+ApkProjects/
+.audacity-data/
+.bundle/
+.cargo/
+**/.config/Code/
+**/.config/logseq
+.dotnet/
+.dvdcss/
+.factorio/
+.fltk/
+.gem/
+.itch/
+.java/
+**/.lexaloffle/Picotron/anywhen/
+**/.local/focalboard-bin/
+**/.local/opt/
+**/.local/share/nvim/
+**/.local/share/Steam
+.logseq/
+.lyx/
+.MakeMKV/
+.mono/
+.mozilla/
+.npm/
+.nuget/
+.oracle_jre_usage/
+.pki/
+.plastic4/
+.renpy/
+.steam/
+.templateengine/
+.texlive*/
+.tmux/
+**/Unity/Hub/
+**/.var/app/
+.vim/
+.vscode/
