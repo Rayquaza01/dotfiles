@@ -251,7 +251,7 @@ endif
 
 if has('nvim')
     nnoremap <leader>h :FzfLua command_history<CR>
-    command! Commands :FzfLua commands<CR>
+    command! Commands :FzfLua commands
 else
     nnoremap <leader>h :History:<CR>
 endif
@@ -671,9 +671,11 @@ lua << EOF
             }
         },
         on_open = function ()
+            vim.fn['peekaboo#off']()
             vim.cmd('PencilSoft')
         end,
         on_close = function ()
+            vim.fn['peekaboo#on']()
             vim.cmd('PencilOff')
         end
     })
