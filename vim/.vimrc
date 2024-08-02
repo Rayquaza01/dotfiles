@@ -144,8 +144,8 @@ set foldlevelstart=99
 set foldenable
 
 " i beam cursor
-let &t_SI = "\e[6 q"
-let &t_EI = "\e[2 q"
+let &t_SI = '\e[6 q'
+let &t_EI = '\e[2 q'
 
 vnoremap $ $h
 
@@ -269,10 +269,10 @@ let g:netrw_winsize = 20
 
 if has('nvim')
     nnoremap <leader>n :NvimTreeToggle<CR>
-    nnoremap - :echo "Did you mean :NvimTreeToggle?"<CR>
+    nnoremap - :echo 'Did you mean :NvimTreeToggle?'<CR>
 else
     nnoremap <leader>n :Lexplore<CR>
-    nnoremap - :echo "Did you mean :Lexplore?"<CR>
+    nnoremap - :echo 'Did you mean :Lexplore?'<CR>
 endif
 
 " === EASYALIGN CONFIG
@@ -332,14 +332,14 @@ set signcolumn=yes
 inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#next(1) :
       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>":
-      \ CheckBackspace() ? "\<Tab>" :
+      \ CheckBackspace() ? '\<Tab>' :
       \ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : '\<C-h>'
 
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+                              \: '\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>'
 
 function! CheckBackspace() abort
   let col = col('.') - 1
@@ -427,12 +427,12 @@ omap ac <Plug>(coc-classobj-a)
 
 " Remap <C-f> and <C-b> to scroll float windows/popups
 if has('nvim-0.4.0') || has('patch-8.2.0750')
-    nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-    nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-    inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-    inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-    vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-    vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+    nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : '\<C-f>'
+    nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : '\<C-b>'
+    inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? '\<c-r>=coc#float#scroll(1)\<cr>' : '\<Right>'
+    inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? '\<c-r>=coc#float#scroll(0)\<cr>' : '\<Left>'
+    vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : '\<C-f>'
+    vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : '\<C-b>'
 endif
 
 " Use CTRL-S for selections ranges
@@ -507,31 +507,31 @@ lua << EOF
     -- === IBL CONFIG and RAINBOW DELIMITERS CONFIG ===
     -- https://github.com/lukas-reineke/indent-blankline.nvim#rainbow-delimitersnvim-integration
     local highlight = {
-        "RainbowRed",
-        "RainbowYellow",
-        "RainbowBlue",
-        "RainbowOrange",
-        "RainbowGreen",
-        "RainbowViolet",
-        "RainbowCyan",
+        'RainbowRed',
+        'RainbowYellow',
+        'RainbowBlue',
+        'RainbowOrange',
+        'RainbowGreen',
+        'RainbowViolet',
+        'RainbowCyan',
     }
 
     local hooks = require('ibl.hooks')
     -- create the highlight groups in the highlight setup hook, so they are reset
     -- every time the colorscheme changes
     hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-        vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
-        vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#E5C07B" })
-        vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#61AFEF" })
-        vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#D19A66" })
-        vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#98C379" })
-        vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })
-        vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
+        vim.api.nvim_set_hl(0, 'RainbowRed', { fg = '#E06C75' })
+        vim.api.nvim_set_hl(0, 'RainbowYellow', { fg = '#E5C07B' })
+        vim.api.nvim_set_hl(0, 'RainbowBlue', { fg = '#61AFEF' })
+        vim.api.nvim_set_hl(0, 'RainbowOrange', { fg = '#D19A66' })
+        vim.api.nvim_set_hl(0, 'RainbowGreen', { fg = '#98C379' })
+        vim.api.nvim_set_hl(0, 'RainbowViolet', { fg = '#C678DD' })
+        vim.api.nvim_set_hl(0, 'RainbowCyan', { fg = '#56B6C2' })
     end)
 
     vim.g.rainbow_delimiters = { highlight = highlight }
 
-    require("ibl").setup({
+    require('ibl').setup({
         scope = { show_end = false, show_start = false, highlight = highlight }
     })
 
@@ -555,7 +555,7 @@ lua << EOF
     require('cokeline').setup({
         default_hl = {
             fg = function (buffer)
-                return buffer.is_focused and codedark_colors.white or get_hex("Comment", "fg")
+                return buffer.is_focused and codedark_colors.white or get_hex('Comment', 'fg')
             end,
             bg = function(buffer)
                 return buffer.is_focused and codedark_colors.black or codedark_colors.gray
@@ -579,32 +579,32 @@ lua << EOF
             {
                 text = function(buffer)
                     if buffer.diagnostics.errors > 0 then
-                        return  "󰅚 " .. buffer.diagnostics.errors .. " "
+                        return  '󰅚 ' .. buffer.diagnostics.errors .. ' '
                     end
 
-                    return ""
+                    return ''
                 end,
-                fg = get_hex("DiagnosticError", "fg") or get_hex("LspDiagnosticsDefaultError", "fg") or get_hex("DiffDelete", "fg")
+                fg = get_hex('DiagnosticError', 'fg') or get_hex('LspDiagnosticsDefaultError', 'fg') or get_hex('DiffDelete', 'fg')
             },
             {
                 text = function(buffer)
                     if buffer.diagnostics.warnings > 0 then
-                        return "󰀪 " .. buffer.diagnostics.warnings .. " "
+                        return '󰀪 ' .. buffer.diagnostics.warnings .. ' '
                     end
 
-                    return ""
+                    return ''
                 end,
-                fg = get_hex("DiagnosticWarn", "fg") or get_hex("LspDiagnosticsDefaultWarning", "fg") or get_hex("DiffText", "fg")
+                fg = get_hex('DiagnosticWarn', 'fg') or get_hex('LspDiagnosticsDefaultWarning', 'fg') or get_hex('DiffText', 'fg')
             },
             {
                 text = function(buffer)
                     if buffer.diagnostics.infos > 0 then
-                        return "󰋽 " .. buffer.diagnostics.infos .. " "
+                        return '󰋽 ' .. buffer.diagnostics.infos .. ' '
                     end
 
-                    return ""
+                    return ''
                 end,
-                fg = get_hex("DiagnosticInfo", "fg") or get_hex("LspDiagnosticsDefaultInformation", "fg") or get_hex("Normal", "fg")
+                fg = get_hex('DiagnosticInfo', 'fg') or get_hex('LspDiagnosticsDefaultInformation', 'fg') or get_hex('Normal', 'fg')
             },
             {
                 text = function(buffer)
@@ -629,17 +629,17 @@ lua << EOF
     -- === LUALINE CONFIG ===
     require('lualine').setup({
         options = {
-            theme = "codedark",
-            component_separators = "",
-            section_separators = ""
+            theme = 'codedark',
+            component_separators = '',
+            section_separators = ''
         },
         sections = {
-            lualine_a = { "mode" },
-            lualine_b = { "branch", "diff", "diagnostics" },
-            lualine_c = { "filename", vim.pesc("coc#status"), 'b:coc_current_function' },
-            lualine_x = { "ObsessionStatus", "encoding", "fileformat", "filetype" },
-            lualine_y = { "progress" },
-            lualine_z = { "location" }
+            lualine_a = { 'mode' },
+            lualine_b = { 'branch', 'diff', 'diagnostics' },
+            lualine_c = { 'filename', vim.pesc('coc#status'), 'b:coc_current_function' },
+            lualine_x = { 'ObsessionStatus', 'encoding', 'fileformat', 'filetype' },
+            lualine_y = { 'progress' },
+            lualine_z = { 'location' }
         }
     })
 
@@ -649,7 +649,7 @@ EOF
 
 endif
 
-" === END LUA CONFIG
+" === END LUA CONFIG ===
 
 " === OBSESSION CONFIG ===
 " use autocmd to autoload obsession. fixes compat with rainbow delimiters
