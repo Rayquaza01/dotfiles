@@ -1,6 +1,7 @@
 " MY (NEO)VIM CONFIGURATION
 " All neovim specific configuration should be wrapped inside a has('nvim')
 " Any lua configuration (such as plugin configs) are in .config/nvim/init.lua
+" or in the lua heredoc at the end of this file
 
 " === PLUGIN DEFINITIONS ===
 
@@ -52,7 +53,7 @@ if has('nvim')
     Plug 'nvim-tree/nvim-tree.lua'
 
     " Doesn't work with obsession
-    " Plug 'HiPhish/rainbow-delimiters.nvim'
+    Plug 'HiPhish/rainbow-delimiters.nvim'
 
     Plug 'lewis6991/gitsigns.nvim'
     Plug 'f-person/git-blame.nvim'
@@ -319,6 +320,33 @@ endif
 " if has('nvim')
 "     nnoremap yoi :IBLToggle<CR>
 " endif
+
+" === RAINBOW DELIMITERS CONFIG ===
+let g:rainbow_delimiters = {
+    \ 'strategy': {
+        \ '': rainbow_delimiters#strategy.global,
+        \ 'vim': rainbow_delimiters#strategy.local,
+    \ },
+    \ 'query': {
+        \ '': 'rainbow-delimiters',
+        \ 'lua': 'rainbow-blocks',
+    \ },
+    \ 'priority': {
+        \ '': 110,
+        \ 'lua': 210,
+    \ },
+    \ 'highlight': [
+        \ 'RainbowDelimiterRed',
+        \ 'RainbowDelimiterYellow',
+        \ 'RainbowDelimiterBlue',
+        \ 'RainbowDelimiterOrange',
+        \ 'RainbowDelimiterGreen',
+        \ 'RainbowDelimiterViolet',
+        \ 'RainbowDelimiterCyan',
+    \ ],
+\ }
+
+
 
 " === BEGIN COC CONFIG ===
 
@@ -630,7 +658,10 @@ endif
 " === END LUA CONFIG
 
 " === OBSESSION CONFIG ===
+" use autocmd to autoload obsession. fixes compat with rainbow delimiters
+" https://github.com/tpope/vim-obsession/issues/17#issuecomment-229144719
 
-if !empty(glob("Session.vim"))
-    silent! source Session.vim
-endif
+autocmd VimEnter * nested
+    \ if !argc() && empty(v:this_session) && filereadable('Session.vim') && !&modified |
+        \   source Session.vim |
+    \ endif
