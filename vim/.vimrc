@@ -316,6 +316,15 @@ if has('nvim')
     let g:gitblame_message_template = ' <author>  <date>  <summary>'
 endif
 
+" === OBSESSION CONFIG ===
+" use autocmd to autoload obsession. fixes compat with rainbow delimiters
+" https://github.com/tpope/vim-obsession/issues/17#issuecomment-229144719
+
+autocmd VimEnter * nested
+    \ if !argc() && empty(v:this_session) && filereadable('Session.vim') && !&modified |
+        \   source Session.vim |
+    \ endif
+
 " === BEGIN COC CONFIG ===
 
 " Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
@@ -673,12 +682,3 @@ EOF
 endif
 
 " === END LUA CONFIG ===
-
-" === OBSESSION CONFIG ===
-" use autocmd to autoload obsession. fixes compat with rainbow delimiters
-" https://github.com/tpope/vim-obsession/issues/17#issuecomment-229144719
-
-autocmd VimEnter * nested
-    \ if !argc() && empty(v:this_session) && filereadable('Session.vim') && !&modified |
-        \   source Session.vim |
-    \ endif
