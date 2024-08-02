@@ -3,11 +3,11 @@ if [ -z "$container" ]; then
     # alias vim='gvim -v'
     alias vim='nvim'
 
-    alias ls='exa --icons'
-    alias ll='exa -l --git --icons'
-    alias la='exa -la --git --icons'
+    alias ls='eza --icons'
+    alias ll='eza -l --git --icons'
+    alias la='eza -la --git --icons'
 
-    alias tree='exa --tree --icons'
+    alias tree='eza --tree --icons'
 
     alias flatpak-run='flatpak run $(flatpak list --columns=application | fzf)'
 
