@@ -144,8 +144,11 @@ set foldlevelstart=99
 set foldenable
 
 " i beam cursor
-let &t_SI = '\e[6 q'
-let &t_EI = '\e[2 q'
+" needs to be in double quotes to work
+if !has('nvim')
+    let &t_SI = "\e[6 q"
+    let &t_EI = "\e[2 q"
+endif
 
 vnoremap $ $h
 
