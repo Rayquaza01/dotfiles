@@ -218,8 +218,6 @@ if !has('nvim')
     let g:airline_symbols.whitespace = 'Ξ'
 endif
 
-
-
 " === GOYO CONFIG ===
 
 if !has('nvim')
