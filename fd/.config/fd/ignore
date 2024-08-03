@@ -4,6 +4,12 @@
 # javascript
 node_modules/
 
+# wine
+**/drive_c/ProgramData/
+**/drive_c/Program Files/
+**/drive_c/Program Files (x86)/
+**/drive_c/windows/
+
 # trash and temporary files
 .cache/
 cache/
