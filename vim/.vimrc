@@ -184,8 +184,8 @@ augroup AutoSpell
     autocmd FileType markdown,text,gitcommit setlocal spell
 augroup END
 
-" nnoremap <leader>x :bd<CR>
-" nnoremap <leader>w :w<CR>
+nnoremap <leader>q :Bdelete<CR>
+nnoremap <leader>w :w<CR>
 
 " === USER CONFIG END ===
 
@@ -414,7 +414,7 @@ nmap <leader>ac  <Plug>(coc-codeaction-cursor)
 " Remap keys for apply code actions affect whole buffer
 nmap <leader>as  <Plug>(coc-codeaction-source)
 " Apply the most preferred quickfix action to fix diagnostic on the current line
-nmap <leader>qf  <Plug>(coc-fix-current)
+" nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Remap keys for applying refactor code actions
 nmap <silent> <leader>re <Plug>(coc-codeaction-refactor)
