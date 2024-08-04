@@ -187,6 +187,10 @@ augroup END
 nnoremap <leader>q :Bdelete<CR>
 nnoremap <leader>w :w<CR>
 
+if has('nvim')
+    set exrc
+endif
+
 " === USER CONFIG END ===
 
 " === PLUGIN CONFIG START ===
