@@ -249,10 +249,10 @@ else
 endif
 
 if has('nvim')
-    nnoremap <leader>h :FzfLua command_history<CR>
+    nnoremap <leader>: :FzfLua command_history<CR>
     command! Commands :FzfLua commands
 else
-    nnoremap <leader>h :History:<CR>
+    nnoremap <leader>: :History:<CR>
 endif
 
 nnoremap <leader>b :Buffers<CR>
