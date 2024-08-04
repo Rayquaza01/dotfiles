@@ -659,18 +659,21 @@ lua << EOF
             end)
 
             -- Actions
-            -- largely default, but changing to 'g' (for git) instead of 'h' (for hunk)
-            map('n', '<leader>gs', gitsigns.stage_hunk)
-            map('n', '<leader>gr', gitsigns.reset_hunk)
-            map('v', '<leader>gs', function() gitsigns.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
-            map('v', '<leader>gr', function() gitsigns.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
-            map('n', '<leader>gS', gitsigns.stage_buffer)
-            map('n', '<leader>gu', gitsigns.undo_stage_hunk)
-            map('n', '<leader>gR', gitsigns.reset_buffer)
-            map('n', '<leader>gp', gitsigns.preview_hunk)
+            -- use h (hunk) for hunk specific bindings
+            -- use g (git) for buffer wide bindings
+            map('n', '<leader>hs', gitsigns.stage_hunk)
+            map('n', '<leader>hr', gitsigns.reset_hunk)
+            map('v', '<leader>hs', function() gitsigns.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
+            map('v', '<leader>hr', function() gitsigns.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
+            map('n', '<leader>hp', gitsigns.preview_hunk)
+            map('n', '<leader>hu', gitsigns.undo_stage_hunk)
+            map('n', '<leader>gs', gitsigns.stage_buffer)
+            map('n', '<leader>gr', gitsigns.reset_buffer)
             -- use git-blame.nvim :GitBlameToggle or yogb
             -- map('n', '<leader>hb', function() gitsigns.blame_line{full=true} end)
             -- map('n', '<leader>tb', gitsigns.toggle_current_line_blame)
+
+            -- might want to have these be fugitive bindings?
             map('n', '<leader>gd', gitsigns.diffthis)
             map('n', '<leader>gD', function() gitsigns.diffthis('~') end)
 
