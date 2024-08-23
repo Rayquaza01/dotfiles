@@ -175,6 +175,8 @@ if has('nvim')
     set laststatus=3
 endif
 
+set signcolumn=yes
+
 " enable indent guides using lead multi space
 " not needed in nvim because of indent blank line plugin
 if !has('nvim')
