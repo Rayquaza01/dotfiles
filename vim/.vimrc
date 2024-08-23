@@ -86,6 +86,14 @@ if has('nvim')
     Plug 'hrsh7th/cmp-cmdline'
     Plug 'hrsh7th/nvim-cmp'
     Plug 'saadparwaiz1/cmp_luasnip'
+
+    Plug 'onsails/lspkind.nvim'
+
+    Plug 'hrsh7th/cmp-calc'
+    Plug 'f3fora/cmp-spell'
+    Plug 'chrisgrieser/cmp-nerdfont'
+    Plug 'hrsh7th/cmp-emoji'
+    Plug 'petertriho/cmp-git'
 else
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
@@ -810,6 +818,7 @@ lua << EOF
 
     -- === CMP CONFIG ===
     local cmp = require('cmp')
+    local lspkind = require('lspkind')
 
     cmp.setup({
         snippet = {
@@ -835,25 +844,42 @@ lua << EOF
         }),
         sources = cmp.config.sources({
             { name = 'nvim_lsp' },
-            -- { name = 'vsnip' }, -- For vsnip users.
             { name = 'luasnip' }, -- For luasnip users.
-            -- { name = 'ultisnips' }, -- For ultisnips users.
-            -- { name = 'snippy' }, -- For snippy users.
+            { name = 'calc' },
+            {
+                name = 'spell',
+                option = {
+                    keep_all_entries = false,
+                    enable_in_context = function()
+                        return true
+                    end,
+                    preselect_correct_word = true
+                }
+            },
+            { name = 'emoji' },
+            { name = 'nerdfont' }
         }, {
             { name = 'buffer' },
-        })
+        }),
+        formatting = {
+            format = lspkind.cmp_format({
+                mode = 'symbol_text',
+                maxwidth = 50,
+                show_labelDetails = true
+            })
+        }
     })
 
     -- To use git you need to install the plugin petertriho/cmp-git and uncomment lines below
     -- Set configuration for specific filetype.
-    --[[ cmp.setup.filetype('gitcommit', {
-    sources = cmp.config.sources({
+    cmp.setup.filetype('gitcommit', {
+        sources = cmp.config.sources({
             { name = 'git' },
         }, {
             { name = 'buffer' },
         })
     })
-    require("cmp_git").setup() ]]--
+    require("cmp_git").setup()
 
     -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
     cmp.setup.cmdline({ '/', '?' }, {
