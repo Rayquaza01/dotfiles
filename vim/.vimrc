@@ -340,6 +340,10 @@ if has('nvim')
     let g:ale_use_neovim_diagnostics_api = 1
 endif
 
+let g:ale_linters = {
+    \ 'lua': []
+    \}
+
 " === GIT BLAME CONFIG ===
 if has('nvim')
     nnoremap yogb :GitBlameToggle<CR>
