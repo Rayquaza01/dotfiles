@@ -71,8 +71,8 @@ if has('nvim')
     Plug 'norcalli/nvim-colorizer.lua'
 
     Plug 'folke/zen-mode.nvim'
-
-    Plug 'folke/which-key.nvim'
+    " Plug 'folke/todo-comments.nvim'
+    " Plug 'folke/which-key.nvim'
 
     " NEOVIM LSP PLUGINS
     Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'}
@@ -783,6 +783,9 @@ lua << EOF
             vim.cmd('PencilOff')
         end
     })
+
+    -- === TODO COMMENTS CONFIG ===
+    -- require('todo-comments').setup()
 
     -- === LUASNIP CONFIG ===
     require("luasnip.loaders.from_snipmate").lazy_load()
