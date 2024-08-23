@@ -86,7 +86,6 @@ if has('nvim')
     Plug 'hrsh7th/cmp-cmdline'
     Plug 'hrsh7th/nvim-cmp'
     Plug 'saadparwaiz1/cmp_luasnip'
-    " Plug 'dcampos/cmp-snippy'
 else
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
@@ -219,9 +218,11 @@ endif
 
 " === PLUGIN CONFIG START ===
 
+" === ULTISNIPS CONFIG ===
+
 " let g:UltiSnipsExpandTrigger="<tab>"
-" let g:UltiSnipsJumpForwardTrigger="<c-b>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" let g:UltiSnipsJumpForwardTrigger="<c-j>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " === AIRLINE CONFIG ===
 
@@ -785,7 +786,7 @@ lua << EOF
     require("luasnip.loaders.from_snipmate").lazy_load()
     local ls = require("luasnip")
 
-    vim.keymap.set({"i"}, "<Tab>", function() ls.expand() end, {silent = true})
+    -- vim.keymap.set({"i"}, "<Tab>", function() ls.expand() end, {silent = true})
     vim.keymap.set({"i", "s"}, "<C-j>", function() ls.jump( 1) end, {silent = true})
     vim.keymap.set({"i", "s"}, "<C-k>", function() ls.jump(-1) end, {silent = true})
 
