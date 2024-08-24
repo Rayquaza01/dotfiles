@@ -365,6 +365,11 @@ if has('nvim')
     let g:gitblame_message_template = ' <author>  <date>  <summary>'
 endif
 
+" === LUA SNIP VIM CONFIG ===
+if has('nvim')
+    command! LuaSnipEdit lua require('luasnip.loaders').edit_snippet_files()<CR>
+endif
+
 " === OBSESSION CONFIG ===
 " use autocmd to autoload obsession. fixes compat with rainbow delimiters
 " https://github.com/tpope/vim-obsession/issues/17#issuecomment-229144719
