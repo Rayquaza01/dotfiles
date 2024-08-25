@@ -5,6 +5,8 @@
 
 " === PLUGIN DEFINITIONS ===
 
+scriptencoding utf-8
+
 call plug#begin()
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-commentary'
@@ -278,8 +280,11 @@ if !has('nvim')
         setlocal nospell
     endfunction
 
-    autocmd! User GoyoEnter nested call <SID>goyo_enter()
-    autocmd! User GoyoLeave nested call <SID>goyo_leave()
+    augroup Goyo
+        autocmd!
+        autocmd User GoyoEnter nested call <SID>goyo_enter()
+        autocmd User GoyoLeave nested call <SID>goyo_leave()
+    augroup END
 
     nnoremap <leader>z :Goyo<CR>
 else
@@ -391,10 +396,13 @@ endif
 " use autocmd to autoload obsession. fixes compat with rainbow delimiters
 " https://github.com/tpope/vim-obsession/issues/17#issuecomment-229144719
 
-autocmd VimEnter * nested
-    \ if !argc() && empty(v:this_session) && filereadable('Session.vim') && !&modified |
-    \   source Session.vim |
-    \ endif
+augroup ObsessionRestore
+    autocmd!
+    autocmd VimEnter * nested
+        \ if !argc() && empty(v:this_session) && filereadable('Session.vim') && !&modified |
+        \   source Session.vim |
+        \ endif
+augroup END
 
 " === BEGIN COC CONFIG ===
 
@@ -460,7 +468,10 @@ if !has('nvim')
     endfunction
 
     " Highlight the symbol and its references when holding the cursor
-    autocmd CursorHold * silent call CocActionAsync('highlight')
+    augroup CocHighlight
+        autocmd!
+        autocmd CursorHold * silent call CocActionAsync('highlight')
+    augroup END
 
     " Symbol renaming
     nmap <leader>rn <Plug>(coc-rename)
@@ -470,7 +481,7 @@ if !has('nvim')
     xmap <leader>f  <Plug>(coc-format-selected)
     nmap <leader>f  <Plug>(coc-format-selected)
 
-    augroup mygroup
+    augroup CocFormat
       autocmd!
       " Setup formatexpr specified filetype(s)
       autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
