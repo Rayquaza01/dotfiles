@@ -376,7 +376,7 @@ if has('nvim')
 endif
 
 " === AUTO PAIRS VIM CONFIG ===
-if has(nvim)
+if has('nvim')
     command! AutoPairsToggle lua require('nvim-autopairs').toggle()<CR>
 endif
 
