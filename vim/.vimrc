@@ -273,11 +273,13 @@ if !has('nvim')
     function! s:goyo_enter()
         PencilSoft
         setlocal spell
+        setlocal cursorline
     endfunction
 
     function! s:goyo_leave()
         PencilOff
         setlocal nospell
+        setlocal nocursorline
     endfunction
 
     augroup Goyo
@@ -818,7 +820,8 @@ lua << EOF
                 number=false,
                 relativenumber=false,
                 colorcolumn='',
-                spell=true
+                spell=true,
+                cursorline=true,
             }
         },
         on_open = function ()
