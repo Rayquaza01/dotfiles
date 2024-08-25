@@ -90,9 +90,10 @@ if has('nvim')
     Plug 'onsails/lspkind.nvim'
 
     Plug 'hrsh7th/cmp-calc'
-    Plug 'f3fora/cmp-spell'
+    " Plug 'f3fora/cmp-spell'
     Plug 'chrisgrieser/cmp-nerdfont'
     Plug 'hrsh7th/cmp-emoji'
+    Plug 'uga-rosa/cmp-dictionary'
     " Plug 'petertriho/cmp-git'
 else
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
@@ -851,6 +852,10 @@ lua << EOF
             { name = 'nvim_lsp' },
             { name = 'luasnip' }, -- For luasnip users.
             { name = 'calc' },
+
+            --[[
+            -- Spell doesn't work as well as I'd like,
+            -- So I disabled it in favor of dictionary
             {
                 name = 'spell',
                 option = {
@@ -858,13 +863,15 @@ lua << EOF
                     enable_in_context = function()
                         return true
                     end,
-                    preselect_correct_word = true
+                    preselect_correct_word = false
                 }
             },
-            { name = 'emoji' },
-            { name = 'nerdfont' }
+            ]]--
+
+            { name = 'emoji' }
         }, {
             { name = 'buffer' },
+            { name = 'dictionary', keyword_length = 2 },
         }),
         formatting = {
             format = lspkind.cmp_format({
@@ -903,6 +910,11 @@ lua << EOF
             { name = 'cmdline' }
         }),
         matching = { disallow_symbol_nonprefix_matching = false }
+    })
+
+    require('cmp_dictionary').setup({
+        paths = { "/usr/share/dict/words", "~/.config/nvim/spell/en.utf-8.add" },
+        exact_length = 2
     })
 
     -- Set up lspconfig.
