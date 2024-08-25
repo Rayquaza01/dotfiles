@@ -191,15 +191,15 @@ set signcolumn=yes
 " enable indent guides using lead multi space
 " not needed in nvim because the indent blankline plugin does it better
 " based on the example in this readme: https://github.com/thaerkh/vim-indentguides
-" The list chars here are based on the listchars in sensible, with tab changed to │
+" The list chars here are based on the listchars in sensible, with tab changed to ▎
 if !has('nvim')
     augroup Indent
         autocmd!
-        autocmd BufEnter * execute 'setlocal listchars=tab:│\ ,trail:-,extends:>,precedes:<,nbsp:+,multispace:│' . repeat('\ ', &sw - 1)
-        autocmd OptionSet shiftwidth execute 'setlocal listchars=tab:│\ ,trail:-,extends:>,precedes:<,nbsp:+,multispace:│' . repeat('\ ', &sw - 1)
+        autocmd BufEnter * execute 'setlocal listchars=tab:▎\ ,trail:-,extends:>,precedes:<,nbsp:+,multispace:▎' . repeat('\ ', &sw - 1)
+        autocmd OptionSet shiftwidth execute 'setlocal listchars=tab:▎\ ,trail:-,extends:>,precedes:<,nbsp:+,multispace:▎' . repeat('\ ', &sw - 1)
     augroup END
 else
-    set listchars=tab:│\ ,trail:-,extends:>,precedes:<,nbsp:+
+    set listchars=tab:▎\ ,trail:-,extends:>,precedes:<,nbsp:+
 endif
 
 " <C-`> to open terminal
