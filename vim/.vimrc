@@ -824,6 +824,9 @@ lua << EOF
     vim.keymap.set({"i", "s"}, "<C-j>", function() ls.jump( 1) end, {silent = true})
     vim.keymap.set({"i", "s"}, "<C-k>", function() ls.jump(-1) end, {silent = true})
 
+    vim.keymap.set({"i", "s"}, "<Tab>", function() ls.jump( 1) end, {silent = true})
+    vim.keymap.set({"i", "s"}, "<S-Tab>", function() ls.jump(-1) end, {silent = true})
+
     vim.keymap.set({"i", "s"}, "<C-E>", function()
         if ls.choice_active() then
             ls.change_choice(1)
@@ -860,7 +863,8 @@ lua << EOF
             ['<C-f>'] = cmp.mapping.scroll_docs(4),
             ['<C-Space>'] = cmp.mapping.complete(),
             ['<C-e>'] = cmp.mapping.abort(),
-            ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+            ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+            ['<Tab>'] = cmp.mapping.confirm({ select = true }),
         }),
         sources = cmp.config.sources({
             { name = 'nvim_lsp' },
