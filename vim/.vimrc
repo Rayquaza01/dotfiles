@@ -941,6 +941,7 @@ lua << EOF
     -- === LSP CONFIG CONFIG ===
     local lspconfig = require('lspconfig')
     lspconfig.clangd.setup({ capabilities = capabilities })
+    lspconfig.cssls.setup({ capabilities = capabilities })
     lspconfig.gdscript.setup({ capabilities = capabilities })
     lspconfig.html.setup({ capabilities = capabilities })
     lspconfig.jsonls.setup({ capabilities = capabilities })
@@ -948,7 +949,6 @@ lua << EOF
     lspconfig.pyright.setup({ capabilities = capabilities })
     lspconfig.tsserver.setup({ capabilities = capabilities })
     lspconfig.vimls.setup({ capabilities = capabilities })
-    lspconfig.pico8_ls.setup({ capabilities = capabilities })
 EOF
 
 endif
