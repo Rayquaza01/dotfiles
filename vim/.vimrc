@@ -375,6 +375,11 @@ if has('nvim')
     command! LuaSnipEdit lua require('luasnip.loaders').edit_snippet_files()<CR>
 endif
 
+" === AUTO PAIRS VIM CONFIG ===
+if has(nvim)
+    command! AutoPairsToggle lua require('nvim-autopairs').toggle()<CR>
+endif
+
 " === OBSESSION CONFIG ===
 " use autocmd to autoload obsession. fixes compat with rainbow delimiters
 " https://github.com/tpope/vim-obsession/issues/17#issuecomment-229144719
@@ -697,7 +702,9 @@ lua << EOF
     })
 
     -- === AUTO PAIRS CONFIG ===
-    require('nvim-autopairs').setup()
+    require('nvim-autopairs').setup({
+        disable_filetype = { "markdown" }
+    })
 
     -- === TELESCOPE CONFIG ===
     -- require('telescope').setup({
@@ -827,8 +834,11 @@ lua << EOF
     require('mason').setup()
 
     -- === CMP CONFIG ===
+    local cmp_autopairs = require('nvim-autopairs.completion.cmp')
     local cmp = require('cmp')
     local lspkind = require('lspkind')
+
+    cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 
     cmp.setup({
         snippet = {
