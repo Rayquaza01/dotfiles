@@ -273,9 +273,13 @@ if !has('nvim')
 
     autocmd! User GoyoEnter nested call <SID>goyo_enter()
     autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+    nnoremap <leader>z :Goyo<CR>
 else
     " set goyo as alias for zen mode in neovim
     command! Goyo :ZenMode
+
+    nnoremap <leader>z :ZenMode<CR>
 endif
 
 " === FZF CONFIG ===
