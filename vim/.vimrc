@@ -360,8 +360,13 @@ let g:ale_disable_lsp = 1
 
 " overwrite unimpaired quickfix mappings to use ale
 " includes errors from ale and coc, so preferred over ]g [g coc bindings
-nnoremap <silent> [q :ALEPrevious<CR>
-nnoremap <silent> ]q :ALENext<CR>
+if has('nvim')
+    nnoremap [q :lua vim.diagnostic.goto_prev()<CR>
+    nnoremap ]q :lua vim.diagnostic.goto_next()<CR>
+else
+    nnoremap <silent> [q :ALEPrevious<CR>
+    nnoremap <silent> ]q :ALENext<CR>
+endif
 
 if has('nvim')
     let g:ale_use_neovim_diagnostics_api = 1
