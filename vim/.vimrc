@@ -970,7 +970,7 @@ lua << EOF
     lspconfig.jsonls.setup({ capabilities = capabilities })
     lspconfig.lua_ls.setup({ capabilities = capabilities })
     lspconfig.pyright.setup({ capabilities = capabilities })
-    lspconfig.tsserver.setup({ capabilities = capabilities })
+    lspconfig.ts_ls.setup({ capabilities = capabilities })
     lspconfig.vimls.setup({ capabilities = capabilities })
 EOF
 
