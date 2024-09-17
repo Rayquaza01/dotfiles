@@ -162,6 +162,10 @@ if has('gui')
     set guioptions=
 endif
 
+if exists('g:neovide')
+    set guifont=DejaVu\ Sans\ Mono:h14
+endif
+
 set mouse=a
 
 set foldmethod=indent
