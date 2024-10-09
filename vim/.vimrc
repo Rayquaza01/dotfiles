@@ -21,7 +21,6 @@ Plug 'honza/vim-snippets'
 " colorschemes
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'tomasiser/vim-code-dark'
-Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
 Plug 'simnalamburt/vim-mundo'
 
@@ -97,6 +96,8 @@ if has('nvim')
     Plug 'hrsh7th/cmp-emoji'
     Plug 'uga-rosa/cmp-dictionary'
     " Plug 'petertriho/cmp-git'
+
+    Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 else
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
@@ -109,6 +110,8 @@ else
 
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+
+    Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 endif
 
 call plug#end()
@@ -153,9 +156,13 @@ if !has('gui_running')
     let g:codedark_transparent=1
 endif
 set background=dark
-colorscheme codedark
+" colorscheme codedark
 " colorscheme papercolor
-" colorscheme catppuccin-macchiato
+if has('nvim')
+    colorscheme catppuccin-macchiato
+else
+    colorscheme catppuccin_macchiato
+endif
 
 if has('gui')
     set guifont=DejaVu\ Sans\ Mono\ 14
@@ -659,23 +666,27 @@ lua << EOF
         white    = '#D4D4D4',
         green    = '#608B4E',
     }
+    local macchiato = require("catppuccin.palettes").get_palette("macchiato")
 
     local get_hex = require('cokeline.hlgroups').get_hl_attr
 
     require('cokeline').setup({
         default_hl = {
             fg = function (buffer)
-                return buffer.is_focused and codedark_colors.white or get_hex('Comment', 'fg')
+                return buffer.is_focused and macchiato.text or get_hex('Comment', 'fg')
             end,
             bg = function(buffer)
-                return buffer.is_focused and codedark_colors.black or codedark_colors.gray
+                return buffer.is_focused and macchiato.surface0 or macchiato.mantle
             end
         },
 
         components = {
             {
                 text = function(buffer) return ' ' .. buffer.devicon.icon  end,
-                fg = function(buffer) return buffer.devicon.color end,
+                fg = function(buffer)
+                    -- return buffer.is_focused and buffer.devicon.color or get_hex('Comment', 'fg')
+                    return buffer.devicon.color
+                end,
             },
             {
                 text = function(buffer) return buffer.unique_prefix end,
@@ -802,9 +813,9 @@ lua << EOF
     -- === LUALINE CONFIG ===
     require('lualine').setup({
         options = {
-            theme = 'codedark',
-            component_separators = '',
-            section_separators = ''
+            theme = 'catppuccin-mocha',
+            component_separators = { left = '', right = '' },
+            section_separators = { left = '', right = '' }
         },
         sections = {
             lualine_a = { 'mode' },
