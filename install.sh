@@ -29,10 +29,10 @@ if [[ "${dotfiles[*]}" =~ "fish" ]]; then
     if gum confirm "Would you like to install fisher?"; then
         echo "Installing fisher"
         fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"
+    fi
 
-        if gum confirm "Would you like to run the fish setup script?"; then
-            echo "Running fish setup"
-            fish ./fish/.config/fish/fish_setup.sh
-        fi
+    if gum confirm "Would you like to run the fish setup script?"; then
+        echo "Running fish setup"
+        fish ./fish/.config/fish/fish_setup.fish
     fi
 fi
