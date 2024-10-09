@@ -47,6 +47,8 @@ Plug 'preservim/vim-pencil'
 Plug 'aymericbeaumet/vim-symlink'
 Plug 'moll/vim-bbye'
 
+Plug 'blueyed/vim-diminactive'
+
 if has('nvim')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
@@ -193,9 +195,9 @@ vnoremap $ $h
 " neovim needs this for gg to move to the start of the line
 set startofline
 
-if has('nvim')
-    set laststatus=3
-endif
+" if has('nvim')
+"     set laststatus=3
+" endif
 
 set signcolumn=yes
 
@@ -824,6 +826,14 @@ lua << EOF
             lualine_x = { 'ObsessionStatus', 'encoding', 'fileformat', 'filetype' },
             lualine_y = { 'progress' },
             lualine_z = { 'location' }
+        },
+        inactive_sections = {
+            lualine_a = {},
+            lualine_b = {},
+            lualine_c = { 'filename' },
+            lualine_x = { 'location' },
+            lualine_y = {},
+            lualine_z = {}
         }
     })
 
