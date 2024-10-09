@@ -13,10 +13,10 @@ if [ -z "$container" ]; then
 
     alias cat="bat"
 
-    alias ranger='. ranger ranger'
-    alias r='. ranger ranger'
+    # alias ranger='. ranger ranger'
+    # alias r='. ranger ranger'
 
-    alias neofetch="neowofetch"
+    alias neofetch="fastfetch"
 
     alias yay="distrobox enter arch -- yay"
     alias zeditor="distrobox enter arch -- zeditor"
