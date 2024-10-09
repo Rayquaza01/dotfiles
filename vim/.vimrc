@@ -245,6 +245,8 @@ endif
 if has('nvim')
     " f2 to rename current symbol
     nnoremap <F2> :lua vim.lsp.buf.rename()<CR>
+    " gd to go to definition
+    nnoremap gd :lua vim.lsp.buf.definition()<CR>
 endif
 
 " === USER CONFIG END ===
