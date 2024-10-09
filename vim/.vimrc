@@ -370,7 +370,7 @@ nnoremap <leader>u :MundoToggle<CR>
 
 " === FUGITIVE CONFIG ===
 
-command Gpush G push
+command! Gpush G push
 
 " === ALE CONFIG ===
 
