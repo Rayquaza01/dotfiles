@@ -1,9 +1,5 @@
 # .bashrc
 
-if [ -z "$container" ] && [ -z "$TMUX" ] && command -v tmux-auto-session &>/dev/null; then
-    tmux-auto-session && exit
-fi
-
 # Source global definitions
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
