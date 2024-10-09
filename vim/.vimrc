@@ -263,7 +263,13 @@ if !has('nvim')
     let g:airline#extensions#tabline#enabled = 1
     " let g:airline#extensions#tabline#buffer_nr_show = 1
 
-    let g:airline_theme='codedark'
+    let g:airline_left_sep = ''
+    let g:airline_right_sep = ''
+    let g:airline#extensions#tabline#left_sep = ''
+    let g:airline#extensions#tabline#left_alt_sep = ''
+
+    " let g:airline_theme='codedark'
+    let g:airline_theme='catppuccin_macchiato'
 
     " airline use unicode symbols
     if !exists('g:airline_symbols')
