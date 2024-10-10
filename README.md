@@ -8,7 +8,7 @@ Personal dotfiles
 
 You can install the dotfiles using an interactive install script. Requires [`gum`](https://github.com/charmbracelet/gum).
 
-Select the dotfiles to install, and they will be installed with stow. If installing `vim`, it will offer to install [vim-plug](https://github.com/junegunn/vim-plug) (requires `curl`). If installing `tmux`, it will offer to install [tpm](https://github.com/tmux-plugins/tpm) (requires `git`).
+Select the dotfiles to install, and they will be installed with stow. If installing `vim`, it will offer to install [vim-plug](https://github.com/junegunn/vim-plug). If installing `tmux`, it will offer to install [tpm](https://github.com/tmux-plugins/tpm). If installing `fish`, it will offer to install [Fisher](https://github.com/jorgebucaran/fisher).
 
 > [!NOTE]
 > The file `dotfiles` contains a list of all of the installable dotfiles.
