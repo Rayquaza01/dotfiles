@@ -7,7 +7,7 @@ fi
 
 dotfiles=$(gum choose --header "Select dotfiles to install" --no-limit <dotfiles)
 for dotfile in $dotfiles; do
-    stow --adopt -t ~ -Sv "$dotfile"
+    stow --no-folding --adopt -t ~ -Sv "$dotfile"
 done
 
 if [[ "${dotfiles[*]}" =~ "vim" ]]; then
