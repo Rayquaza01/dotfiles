@@ -1,4 +1,7 @@
 function cat --wraps=bat --description 'alias cat=bat'
-  bat $argv
-        
+    if command -q bat
+        bat $argv
+    else
+        cat $argv
+    end
 end

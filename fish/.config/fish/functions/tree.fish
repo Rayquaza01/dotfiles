@@ -1,4 +1,9 @@
 function tree --wraps='eza --tree --icons' --description 'alias tree=eza --tree --icons'
-  eza --tree --icons $argv
-        
+    if command -q eza
+        eza --tree --icons $argv
+    else if command -q exa
+        exa --tree --icons $argv
+    else
+        tree $argv
+    end
 end
