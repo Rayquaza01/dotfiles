@@ -334,6 +334,9 @@ if has('nvim')
 
     nnoremap <leader>o :FzfLua lsp_document_symbols<CR>
     nnoremap <leader>a :FzfLua lsp_document_diagnostics<CR>
+
+    command! CodeActions :FzfLua lsp_code_actions
+    nnoremap <leader>ca :FzfLua lsp_code_actions<CR>
 else
     nnoremap <leader>: :History:<CR>
 endif
