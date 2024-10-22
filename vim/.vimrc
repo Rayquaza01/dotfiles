@@ -690,13 +690,13 @@ lua << EOF
     require('cokeline').setup({
         default_hl = {
             fg = function (buffer)
-                return buffer.is_focused and macchiato.text or macchiato.text
+                return buffer.is_focused and macchiato.text or get_hex('Comment', 'fg')
             end,
             bg = function(buffer)
                 if buffer.buf_hovered then
-                    return buffer.is_focused and macchiato.surface0 or macchiato.surface2
+                    return macchiato.surface1
                 else
-                    return buffer.is_focused and macchiato.surface0 or macchiato.surface1
+                    return buffer.is_focused and macchiato.surface1 or macchiato.surface0
                 end
             end
         },
@@ -705,7 +705,7 @@ lua << EOF
             {
                 text = '',
                 fg = function(buffer)
-                    return buffer.is_focused and macchiato.blue or macchiato.surface2
+                    return buffer.is_focused and macchiato.mauve or macchiato.overlay2
                 end,
                 bg = macchiato.mantle
             },
@@ -772,11 +772,11 @@ lua << EOF
             },
             {
                 text = ' ',
-                fg = function(buffer)
+                fg = function (buffer)
                     if buffer.buf_hovered then
-                        return buffer.is_focused and macchiato.surface0 or macchiato.surface2
+                        return macchiato.surface1
                     else
-                        return buffer.is_focused and macchiato.surface0 or macchiato.surface1
+                        return buffer.is_focused and macchiato.surface1 or macchiato.surface0
                     end
                 end,
                 bg = macchiato.mantle
