@@ -401,9 +401,16 @@ if has('nvim')
         \}
 endif
 
-let g:ale_linters = {
-    \ 'lua': []
-    \}
+" basic configuration for lsp support in ale
+" considering replacing coc with ale,
+" but there are some things not quite there yet
+" would need replacement plugins for snippets, etc.
+" if !has('nvim')
+"     let g:ale_completion_enabled = 1
+"     set omnifunc=ale#completion#OmniFunc
+
+"     nnoremap gd :ALEGoToDefinition<CR>
+" endif
 
 " === GIT BLAME CONFIG ===
 if has('nvim')
