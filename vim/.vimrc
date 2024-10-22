@@ -681,16 +681,6 @@ lua << EOF
 
     -- === COKELINE CONFIG ===
 
-    -- from https://github.com/nvim-lualine/lualine.nvim/blob/6a40b530539d2209f7dc0492f3681c8c126647ad/lua/lualine/themes/codedark.lua#L4
-    local codedark_colors = {
-        gray     = '#3C3C3C',
-        lightred = '#D16969',
-        blue     = '#569CD6',
-        pink     = '#C586C0',
-        black    = '#262626',
-        white    = '#D4D4D4',
-        green    = '#608B4E',
-    }
     local macchiato = require("catppuccin.palettes").get_palette("macchiato")
 
     local get_hex = require('cokeline.hlgroups').get_hl_attr
@@ -698,14 +688,21 @@ lua << EOF
     require('cokeline').setup({
         default_hl = {
             fg = function (buffer)
-                return buffer.is_focused and macchiato.text or get_hex('Comment', 'fg')
+                return buffer.is_focused and macchiato.mantle or macchiato.text
             end,
             bg = function(buffer)
-                return buffer.is_focused and macchiato.surface0 or macchiato.mantle
+                return buffer.is_focused and macchiato.blue or macchiato.surface1
             end
         },
 
         components = {
+            {
+                text = '',
+                fg = function(buffer)
+                    return buffer.is_focused and macchiato.blue or macchiato.surface1
+                end,
+                bg = macchiato.mantle
+            },
             {
                 text = function(buffer) return ' ' .. buffer.devicon.icon  end,
                 fg = function(buffer)
@@ -761,7 +758,14 @@ lua << EOF
                 end
             },
             {
-                text = ' ',
+                text = ' '
+            },
+            {
+                text = ' ',
+                fg = function(buffer)
+                    return buffer.is_focused and macchiato.blue or macchiato.surface1
+                end,
+                bg = macchiato.mantle
             },
         }
     })
