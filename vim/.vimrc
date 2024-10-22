@@ -34,7 +34,7 @@ Plug 'junegunn/gv.vim'
 
 Plug 'easymotion/vim-easymotion'
 
-Plug 'junegunn/vim-peekaboo'
+" Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-easy-align'
 
 Plug 'dense-analysis/ale'
@@ -866,11 +866,11 @@ lua << EOF
             }
         },
         on_open = function ()
-            vim.fn['peekaboo#off']()
+            -- vim.fn['peekaboo#off']()
             vim.cmd('PencilSoft')
         end,
         on_close = function ()
-            vim.fn['peekaboo#on']()
+            -- vim.fn['peekaboo#on']()
             vim.cmd('PencilOff')
         end
     })
