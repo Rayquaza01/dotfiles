@@ -394,6 +394,11 @@ endif
 
 if has('nvim')
     let g:ale_use_neovim_diagnostics_api = 1
+
+    let g:ale_linters = {
+        \ 'lua': [],
+        \ 'rust': []
+        \}
 endif
 
 let g:ale_linters = {
