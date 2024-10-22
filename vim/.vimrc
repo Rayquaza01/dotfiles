@@ -93,10 +93,15 @@ if has('nvim')
     Plug 'onsails/lspkind.nvim'
 
     Plug 'hrsh7th/cmp-calc'
-    " Plug 'f3fora/cmp-spell'
     Plug 'chrisgrieser/cmp-nerdfont'
     Plug 'hrsh7th/cmp-emoji'
-    Plug 'uga-rosa/cmp-dictionary'
+
+    " I don't really care for either of these
+    " dictionary completion is built in with <C-X><C-K>
+    " but it only works with :set spell
+    " Plug 'f3fora/cmp-spell'
+    " Plug 'uga-rosa/cmp-dictionary'
+
     " Plug 'petertriho/cmp-git'
 
     Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
@@ -983,7 +988,7 @@ lua << EOF
             { name = 'emoji' }
         }, {
             { name = 'buffer' },
-            { name = 'dictionary', keyword_length = 2 },
+            -- { name = 'dictionary', keyword_length = 2 },
         }),
         formatting = {
             format = lspkind.cmp_format({
@@ -1024,10 +1029,10 @@ lua << EOF
         matching = { disallow_symbol_nonprefix_matching = false }
     })
 
-    require('cmp_dictionary').setup({
-        paths = { "/usr/share/dict/words", "~/.config/nvim/spell/en.utf-8.add" },
-        exact_length = 2
-    })
+    -- require('cmp_dictionary').setup({
+    --     paths = { "/usr/share/dict/words", "~/.config/nvim/spell/en.utf-8.add" },
+    --     exact_length = 2
+    -- })
 
     -- Set up lspconfig.
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
