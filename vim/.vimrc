@@ -240,6 +240,8 @@ nnoremap <leader>w :w<CR>
 
 if has('nvim')
     set exrc
+
+    set mousemoveevent
 endif
 
 if has('nvim')
@@ -691,7 +693,11 @@ lua << EOF
                 return buffer.is_focused and macchiato.mantle or macchiato.text
             end,
             bg = function(buffer)
-                return buffer.is_focused and macchiato.blue or macchiato.surface1
+                if buffer.buf_hovered then
+                    return buffer.is_focused and macchiato.blue or macchiato.surface2
+                else
+                    return buffer.is_focused and macchiato.blue or macchiato.surface1
+                end
             end
         },
 
@@ -699,7 +705,11 @@ lua << EOF
             {
                 text = '',
                 fg = function(buffer)
-                    return buffer.is_focused and macchiato.blue or macchiato.surface1
+                    if buffer.buf_hovered then
+                        return buffer.is_focused and macchiato.blue or macchiato.surface2
+                    else
+                        return buffer.is_focused and macchiato.blue or macchiato.surface1
+                    end
                 end,
                 bg = macchiato.mantle
             },
@@ -751,7 +761,11 @@ lua << EOF
             },
             {
                 text = function(buffer)
-                    return buffer.is_modified and '' or ''
+                    if buffer.is_hovered then
+                        return buffer.is_modified and '' or '󰅙'
+                    else
+                        return buffer.is_modified and '' or '󰅚'
+                    end
                 end,
                 on_click = function(_, _, _, _, buffer)
                     buffer:delete()
@@ -763,7 +777,11 @@ lua << EOF
             {
                 text = ' ',
                 fg = function(buffer)
-                    return buffer.is_focused and macchiato.blue or macchiato.surface1
+                    if buffer.buf_hovered then
+                        return buffer.is_focused and macchiato.blue or macchiato.surface2
+                    else
+                        return buffer.is_focused and macchiato.blue or macchiato.surface1
+                    end
                 end,
                 bg = macchiato.mantle
             },
