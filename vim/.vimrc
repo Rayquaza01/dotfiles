@@ -47,7 +47,7 @@ Plug 'preservim/vim-pencil'
 Plug 'aymericbeaumet/vim-symlink'
 Plug 'moll/vim-bbye'
 
-Plug 'blueyed/vim-diminactive'
+" Plug 'blueyed/vim-diminactive'
 
 if has('nvim')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
