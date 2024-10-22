@@ -690,13 +690,13 @@ lua << EOF
     require('cokeline').setup({
         default_hl = {
             fg = function (buffer)
-                return buffer.is_focused and macchiato.mantle or macchiato.text
+                return buffer.is_focused and macchiato.text or macchiato.text
             end,
             bg = function(buffer)
                 if buffer.buf_hovered then
-                    return buffer.is_focused and macchiato.blue or macchiato.surface2
+                    return buffer.is_focused and macchiato.surface0 or macchiato.surface2
                 else
-                    return buffer.is_focused and macchiato.blue or macchiato.surface1
+                    return buffer.is_focused and macchiato.surface0 or macchiato.surface1
                 end
             end
         },
@@ -705,11 +705,7 @@ lua << EOF
             {
                 text = '',
                 fg = function(buffer)
-                    if buffer.buf_hovered then
-                        return buffer.is_focused and macchiato.blue or macchiato.surface2
-                    else
-                        return buffer.is_focused and macchiato.blue or macchiato.surface1
-                    end
+                    return buffer.is_focused and macchiato.blue or macchiato.surface2
                 end,
                 bg = macchiato.mantle
             },
@@ -732,7 +728,7 @@ lua << EOF
             {
                 text = function(buffer)
                     if buffer.diagnostics.errors > 0 then
-                        return  '󰅚 ' .. buffer.diagnostics.errors .. ' '
+                        return  ' ' .. buffer.diagnostics.errors .. ' '
                     end
 
                     return ''
@@ -778,9 +774,9 @@ lua << EOF
                 text = ' ',
                 fg = function(buffer)
                     if buffer.buf_hovered then
-                        return buffer.is_focused and macchiato.blue or macchiato.surface2
+                        return buffer.is_focused and macchiato.surface0 or macchiato.surface2
                     else
-                        return buffer.is_focused and macchiato.blue or macchiato.surface1
+                        return buffer.is_focused and macchiato.surface0 or macchiato.surface1
                     end
                 end,
                 bg = macchiato.mantle
