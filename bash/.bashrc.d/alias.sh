@@ -18,10 +18,6 @@ if [ -z "$container" ]; then
 
     alias neofetch="fastfetch"
 
-    alias yay="distrobox enter arch -- yay"
-    alias zeditor="distrobox enter arch -- zeditor"
-    alias yazi="distrobox enter arch -- yazi"
-
     alias godot="flatpak run --command=godot org.godotengine.Godot"
 fi
 
