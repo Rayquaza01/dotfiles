@@ -19,7 +19,7 @@ Select the dotfiles to install, and they will be installed with stow. If install
 
 To install a dotfile, run
 ```
-stow --adopt -t ~/ -Sv <dotfile>
+stow --no-folding --adopt -t ~/ -Sv <dotfile>
 ```
 
 To uninstall a dotfile, run
