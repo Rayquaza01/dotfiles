@@ -52,7 +52,7 @@ Plug 'moll/vim-bbye'
 if has('nvim')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-    Plug 'nvim-tree/nvim-tree.lua'
+    " Plug 'nvim-tree/nvim-tree.lua'
 
     Plug 'windwp/nvim-autopairs'
 
@@ -105,6 +105,8 @@ if has('nvim')
     " Plug 'petertriho/cmp-git'
 
     Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+
+    Plug 'mikavilpas/yazi.nvim'
 else
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
@@ -119,6 +121,9 @@ else
     Plug 'vim-airline/vim-airline-themes'
 
     Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+
+    " Plug 'francoiscabrol/ranger.vim'
+    Plug 'chriszarate/yazi.vim'
 endif
 
 call plug#end()
@@ -355,18 +360,23 @@ if !has('nvim')
     inoremap <expr> <c-x><c-f> fzf#vim#complete#path('fd')
 endif
 
+" === NETRW CONFIG ===
 " === VINEGAR CONFIG ===
 " === NVIMTREE CONFIG ===
+" === YAZI CONFIG ===
+" === RANGER CONFIG ===
 
 let g:netrw_winsize = 20
 
 if has('nvim')
-    nnoremap <leader>n :NvimTreeToggle<CR>
-    nnoremap - :echo 'Did you mean :NvimTreeToggle?'<CR>
+    nnoremap <leader>f :Yazi<CR>
 else
-    nnoremap <leader>n :Lexplore<CR>
-    nnoremap - :echo 'Did you mean :Lexplore?'<CR>
+    nnoremap <leader>f :Yazi<CR>
+    " nnoremap <leader>f :Ranger<CR>
 endif
+
+nnoremap <leader>n :Lexplore<CR>
+nnoremap - :echo 'Did you mean :Lexplore?'<CR>
 
 " === EASYALIGN CONFIG
 
@@ -651,7 +661,7 @@ if has('nvim')
 
 lua << EOF
     -- === NVIMTREE CONFIG ===
-    require('nvim-tree').setup()
+    -- require('nvim-tree').setup()
 
     -- === IBL CONFIG and RAINBOW DELIMITERS CONFIG ===
     -- https://github.com/lukas-reineke/indent-blankline.nvim#rainbow-delimitersnvim-integration
