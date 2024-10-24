@@ -4,6 +4,6 @@ function ls --wraps='eza --icons' --description 'alias ls=eza --icons'
     else if command -q exa
         exa --icons $argv
     else
-        ls $argv
+        command ls --color="auto" $argv
     end
 end

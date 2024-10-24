@@ -4,6 +4,6 @@ function la --wraps='eza -la --git --icons' --description 'alias la=eza -la --gi
     else if command -q exa
         exa -la --git --icons $argv
     else
-        ls -la $argv
+        command ls --color="auto" -la $argv
     end
 end
