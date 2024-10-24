@@ -1,17 +1,67 @@
+#!/usr/bin/env bash
+
+function vim() {
+    if command -v nvim &>/dev/null; then
+        nvim "$@"
+    elif command -v gvim &>/dev/null; then
+        gvim -v "$@"
+    else
+        command vim "$@"
+    fi
+}
+
+function ls() {
+    if command -v eza &>/dev/null; then
+        eza --icons "$@"
+    elif command -v exa &>/dev/null; then
+        exa --icons "$@"
+    else
+        command ls --color="auto" "$@"
+    fi
+}
+
+function ll() {
+    if command -v eza &>/dev/null; then
+        eza -l --git --icons "$@"
+    elif command -v exa &>/dev/null; then
+        exa -l --git --icons "$@"
+    else
+        command ls --color="auto" -la
+    fi
+}
+
+function la() {
+    if command -v eza &>/dev/null; then
+        eza -la --git --icons "$@"
+    elif command -v exa &>/dev/null; then
+        exa -la --git --icons "$@"
+    else
+        command ls --color="auto" -la
+    fi
+}
+
+function tree() {
+    if command -v eza &>/dev/null; then
+        eza --tree --icons "$@"
+    elif command -v exa &>/dev/null; then
+        exa --tree --icons "$@"
+    else
+        command tree "$@"
+    fi
+}
+
+function cat() {
+    if command -v bat &>/dev/null; then
+        bat "$@"
+    else
+        command cat "$@"
+    fi
+}
+
+
 # only apply aliases if not inside a container
 if [ -z "$container" ]; then
-    # alias vim='gvim -v'
-    alias vim='nvim'
-
-    alias ls='eza --icons'
-    alias ll='eza -l --git --icons'
-    alias la='eza -la --git --icons'
-
-    alias tree='eza --tree --icons'
-
     alias flatpak-run='flatpak run $(flatpak list --columns=application | fzf)'
-
-    alias cat="bat"
 
     # alias ranger='. ranger ranger'
     # alias r='. ranger ranger'
