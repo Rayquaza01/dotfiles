@@ -26,7 +26,7 @@ function ll() {
     elif command -v exa &>/dev/null; then
         exa -l --git --icons "$@"
     else
-        command ls --color="auto" -la
+        command ls --color="auto" -l "$@"
     fi
 }
 
@@ -36,7 +36,7 @@ function la() {
     elif command -v exa &>/dev/null; then
         exa -la --git --icons "$@"
     else
-        command ls --color="auto" -la
+        command ls --color="auto" -la "$@"
     fi
 }
 
