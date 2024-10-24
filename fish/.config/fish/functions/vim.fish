@@ -4,6 +4,6 @@ function vim --wraps=nvim --description 'alias vim=nvim'
     else if command -q gvim
         gvim -v $argv
     else
-        vim $argv
+        command vim $argv
     end
 end

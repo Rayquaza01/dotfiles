@@ -4,6 +4,6 @@ function tree --wraps='eza --tree --icons' --description 'alias tree=eza --tree 
     else if command -q exa
         exa --tree --icons $argv
     else
-        tree $argv
+        command tree $argv
     end
 end
