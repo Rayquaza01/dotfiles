@@ -1,5 +1,5 @@
 return {
-	entry = function()
+    entry = function()
         ya.manager_emit("escape", { visual = true })
 
         local h = cx.active.current.hovered
@@ -12,5 +12,5 @@ return {
 
         -- open selected files
         ya.manager_emit("open", {})
-	end,
+    end,
 }
