@@ -11,6 +11,17 @@ on   = [ "g", "r" ]
 run  = '''shell 'ya pub dds-cd --str "$(git rev-parse --show-toplevel)"' --confirm'''
 desc = "Go to the root of the git repository"
 
+[[manager.prepend_keymap]]
+on   = [ "g", "p" ]
+run  = "cd ~/Projects"
+desc = "Jump to projects folder"
+
+# replace zoxide binding with fzf since i don't use zoxide
+[[manager.prepend_keymap]]
+on   = "z"
+run  = "plugin fzf"
+desc = "Jump to a directory or reveal a file using fzf"
+
 # https://yazi-rs.github.io/docs/tips/#close-input-by-esc
 [[input.prepend_keymap]]
 on   = "<Esc>"
