@@ -1058,6 +1058,7 @@ lua << EOF
     lspconfig.lua_ls.setup({ capabilities = capabilities })
     lspconfig.pyright.setup({ capabilities = capabilities })
     lspconfig.rust_analyzer.setup({ capabilities = capabilities })
+    lspconfig.taplo.setup({ capabilities = capabilities })
     lspconfig.ts_ls.setup({ capabilities = capabilities })
     lspconfig.vimls.setup({ capabilities = capabilities })
 EOF
