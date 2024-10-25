@@ -235,7 +235,7 @@ behind    = "⇣${count}"
 modified  = "!${count}"
 untracked = "?${count}"
 staged    = "+${count}"
-format    = '\[[$all_status$ahead_behind]($style)\]'
+format    = '(\[[$all_status$ahead_behind]($style)\])'
 
 [gradle]
 format = '\[[$symbol($version)]($style)\]'
