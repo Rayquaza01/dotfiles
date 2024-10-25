@@ -22,6 +22,7 @@ format = '\[[$symbol($version)]($style)\]'
 symbol = " "
 
 [directory]
+truncation_length = 5
 truncation_symbol = '…/'
 read_only = " 󰌾"
 
