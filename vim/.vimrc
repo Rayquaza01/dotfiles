@@ -1051,6 +1051,7 @@ lua << EOF
     local lspconfig = require('lspconfig')
     lspconfig.clangd.setup({ capabilities = capabilities })
     lspconfig.cssls.setup({ capabilities = capabilities })
+    lspconfig.dprint.setup({ capabilities = capabilities })
     lspconfig.fish_lsp.setup({ capabilities = capabilities })
     lspconfig.gdscript.setup({ capabilities = capabilities })
     lspconfig.html.setup({ capabilities = capabilities })
