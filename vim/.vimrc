@@ -49,6 +49,8 @@ Plug 'moll/vim-bbye'
 
 " Plug 'blueyed/vim-diminactive'
 
+Plug 'vimwiki/vimwiki'
+
 if has('nvim')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
@@ -244,7 +246,7 @@ endif
 
 augroup AutoSpell
     autocmd!
-    autocmd FileType markdown,text,gitcommit setlocal spell
+    autocmd FileType vimwiki,markdown,text,gitcommit setlocal spell
 augroup END
 
 nnoremap <leader>q :Bdelete<CR>
@@ -453,6 +455,10 @@ endif
 if has('nvim')
     command! AutoPairsToggle lua require('nvim-autopairs').toggle()<CR>
 endif
+
+" === VIM WIKI CONFIG ===
+let g:vimwiki_list = [{ 'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': 'md' }]
+nnoremap <leader>w :VimwikiIndex<CR>
 
 " === OBSESSION CONFIG ===
 " use autocmd to autoload obsession. fixes compat with rainbow delimiters
@@ -924,6 +930,19 @@ lua << EOF
 
     -- === TODO COMMENTS CONFIG ===
     -- require('todo-comments').setup()
+
+    -- === RENDER MARKDOWN CONFIG ===
+    -- use render markdown with vimwiki
+    require('render-markdown').setup({
+        file_types = { 'markdown', 'vimwiki' },
+        heading = {
+            --backgrounds = {},
+            --position = 'inline',
+            sign = false,
+        },
+    })
+
+    vim.treesitter.language.register('markdown', 'vimwiki')
 
     -- === LUASNIP CONFIG ===
     require("luasnip.loaders.from_snipmate").lazy_load()
