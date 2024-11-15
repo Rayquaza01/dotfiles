@@ -107,6 +107,8 @@ if has('nvim')
     Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
     Plug 'mikavilpas/yazi.nvim'
+
+    Plug 'MeanderingProgrammer/render-markdown.nvim'
 else
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
