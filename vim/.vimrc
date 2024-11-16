@@ -458,7 +458,6 @@ endif
 
 " === VIM WIKI CONFIG ===
 let g:vimwiki_list = [{ 'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': 'md' }]
-nnoremap <leader>w :VimwikiIndex<CR>
 
 " === OBSESSION CONFIG ===
 " use autocmd to autoload obsession. fixes compat with rainbow delimiters
