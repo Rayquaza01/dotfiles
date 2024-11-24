@@ -58,6 +58,16 @@ function cat() {
     fi
 }
 
+function trash() {
+    if command -v trash &>/dev/null; then
+        command trash -- "$@"
+    elif command -v gio &>/dev/null; then
+        gio trash -- "$@"
+    else
+        # fall back to rm
+        rm -I -- "$@"
+    fi
+}
 
 # only apply aliases if not inside a container
 if [ -z "$container" ]; then
