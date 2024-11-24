@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 if [[ -f "/usr/share/fzf/shell/key-bindings.bash" ]]; then
     source /usr/share/fzf/shell/key-bindings.bash
 fi
