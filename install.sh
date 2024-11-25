@@ -67,7 +67,7 @@ if [[ "${dotfiles[*]}" =~ "fish" ]]; then
 
         if dialog --yesno "Would you like to run the fish setup script?" 0 0; then
             echo "Running fish setup"
-            fish ./fish/.config/fish/fish_setup.fish
+            fish ./fish_setup.fish
         fi
     fi
 fi
