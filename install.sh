@@ -72,4 +72,13 @@ if [[ "${dotfiles[*]}" =~ "fish" ]]; then
     fi
 fi
 
+if [[ "${dotfiles[*]}" =~ "yazi" ]]; then
+    if command -v ya &>/dev/null; then
+        if dialog --yesno "Would you like to install yazi plugins?" 0 0; then
+            echo "Installing yazi plugins"
+            ya pack --install
+        fi
+    fi
+fi
+
 dialog --clear
