@@ -1,0 +1,43 @@
+#!/bin/bash
+
+shopt -s nullglob
+
+if [ -z "$SHEET_LOCATION" ]; then
+    SHEET_LOCATION="${XDG_DATA_HOME:-$HOME/.local/share}/sheets"
+fi
+
+if [ -z "$SHEET_PRINT_COMMAND" ]; then
+    if command -v bat >/dev/null; then
+        SHEET_PRINT_COMMAND="bat -l md"
+    else
+        SHEET_PRINT_COMMAND="less"
+    fi
+fi
+
+if [ ! -d "$SHEET_LOCATION" ]; then
+    mkdir -p "$SHEET_LOCATION"
+fi
+
+if [ $# == 0 ] || [ "$1" == "list" ]; then
+    for f in "$SHEET_LOCATION"/*; do
+        basename "$f"
+    done
+    exit 0
+fi
+
+if [ $# == 2 ]; then
+    if [ "$1" == "new" ] || [ "$1" == "edit" ]; then
+        $EDITOR "$SHEET_LOCATION/$2"
+        exit 0
+    else
+        echo "Expected commands are 'new' 'edit' 'list'"
+        exit 1
+    fi
+fi
+
+if [ $# == 1 ] && [ -f "$SHEET_LOCATION/$1" ]; then
+    $SHEET_PRINT_COMMAND "$SHEET_LOCATION/$1"
+else
+    echo "\"$1\" not found"
+    exit 1
+fi

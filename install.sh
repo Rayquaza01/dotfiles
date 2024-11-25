@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 ok=0
 
 if ! command -v dialog &>/dev/null; then
@@ -25,7 +25,8 @@ dotfiles=$(
         --stdout \
         --checklist "Select dotfiles to install" \
         0 0 0 \
-        bash "" off\
+        bash "" off \
+        bin "" off \
         dialog "" off \
         editorconfig "" off \
         fd "" off \

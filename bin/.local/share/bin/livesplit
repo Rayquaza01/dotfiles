@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+echo "$@" > /dev/tcp/localhost/16834

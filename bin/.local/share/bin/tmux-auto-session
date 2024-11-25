@@ -1,0 +1,23 @@
+#!/bin/bash
+# if inside a tmux session, don't do anything
+if [ -z "$container" ]; then
+    if [ -z "$TMUX" ] && command -v tmux &>/dev/null; then
+        # if pwd is not home, always launch a new session
+        if [ "$PWD" != "$HOME" ]; then
+            exec tmux new
+        fi
+
+        # get the session name of the first session that isn't attached
+        FREE_SESSION=$(tmux ls 2>/dev/null | grep -v "(attached)$" | cut -f1 -d: | head -n 1)
+
+        # if no free sessions, make a new one
+        # otherwise attach to the free session
+        if [ -z "$FREE_SESSION" ]; then
+            exec tmux new
+        else
+            exec tmux attach -t "$FREE_SESSION"
+        fi
+    fi
+else
+    exec bash
+fi
