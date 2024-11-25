@@ -6,12 +6,9 @@ Personal dotfiles
 
 ### Automatic
 
-You can install the dotfiles using an interactive install script. Requires [`gum`](https://github.com/charmbracelet/gum).
+You can install the dotfiles using an interactive install script. Requires `dialog` and `stow`.
 
 Select the dotfiles to install, and they will be installed with stow. If installing `vim`, it will offer to install [vim-plug](https://github.com/junegunn/vim-plug). If installing `tmux`, it will offer to install [tpm](https://github.com/tmux-plugins/tpm). If installing `fish`, it will offer to install [Fisher](https://github.com/jorgebucaran/fisher).
-
-> [!NOTE]
-> The file `dotfiles` contains a list of all of the installable dotfiles.
 
 ### Manual
 
@@ -38,8 +35,7 @@ The following programs are needed for the dotfiles to work correctly:
 * `eza` (aliased to `ls`)
 * `fd` (used with `fzf`)
 * `fzf` (for fuzzy finding in vim and bash)
-* `gum` (used with install script)
-* `neowofetch` (from `hyfetch`, aliased to `neofetch`)
+* `fastfetch` (aliased to `neofetch`)
 * `nodejs` (needed for coc.nvim)
 * `pynvim` (needed for python based nvim plugins to work)
 * `rg` (used with `fzf`)
