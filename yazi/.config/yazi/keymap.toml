@@ -5,6 +5,11 @@ on   = "<Enter>"
 run  = "plugin --sync smart-enter"
 desc = "Enter the child directory, or open the file"
 
+[[manager.prepend_keymap]]
+on   = "F"
+run  = "plugin smart-filter"
+desc = "Smart Filter"
+
 # https://yazi-rs.github.io/docs/tips/#cd-to-git-root
 [[manager.prepend_keymap]]
 on   = [ "g", "r" ]
