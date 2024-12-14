@@ -77,7 +77,7 @@ if has('nvim')
 
     Plug 'folke/zen-mode.nvim'
     " Plug 'folke/todo-comments.nvim'
-    " Plug 'folke/which-key.nvim'
+    Plug 'folke/which-key.nvim'
 
     " NEOVIM LSP PLUGINS
     Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'}
