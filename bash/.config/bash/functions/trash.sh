@@ -6,7 +6,6 @@ function trash() {
     elif command -v gio &>/dev/null; then
         gio trash -- "$@"
     else
-        # fall back to rm
-        rm -I -- "$@"
+        echo "no trash command available"
     fi
 }

@@ -4,7 +4,6 @@ function trash
     else if command -q gio
         gio trash -- "$argv"
     else
-        # fall back to rm
-        rm -I -- "$argv"
+        echo "no trash command available"
     end
 end
