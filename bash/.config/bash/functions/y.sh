@@ -7,5 +7,5 @@ function y() {
 	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
 		builtin cd -- "$cwd" || return
 	fi
-	rm -f -- "$tmp"
+	command rm -f -- "$tmp"
 }
