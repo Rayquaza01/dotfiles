@@ -8,15 +8,9 @@
 
 	/* https://github.com/piroor/treestyletab/wiki/Customizing-with-CSS#css-via-preferences */
 
-	/* Hide the collapsed tab markers and center favicons */
-	:root.sidebar .tab .twisty {
-		visibility: hidden;
-		margin: 0px -3px;
-	}
-
 	/* Space favicons so text is not shown when collapsed */
 	:root.sidebar .tab .favicon {
-		margin-right: 9px;
+		margin-right: 11px;
 	}
 
 	/* Move the new tab button to center when collapsed */
@@ -24,4 +18,10 @@
 		max-width: 40px;
 		margin-left: 4px;
 	}
+}
+
+/* Make the tab favicon and collapsed indicator closer */
+:root.sidebar .tab .twisty {
+    /* visibility: hidden; */
+    margin: 0px -3px;
 }
