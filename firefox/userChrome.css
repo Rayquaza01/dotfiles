@@ -45,6 +45,7 @@
             }
         }
 
+		flex-direction: column-reverse;
     }
 
     /* hide sidebar splitter, only when tst is open */
