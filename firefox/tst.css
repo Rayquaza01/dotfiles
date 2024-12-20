@@ -1,0 +1,27 @@
+/* Config for the Tree Style Tabs options page */
+
+@media screen and (max-width: 50px) {
+    /* Disable indentation when collapsed*/
+	:root.left tab-item-substance {
+		margin-left: 0;
+	}
+
+	/* https://github.com/piroor/treestyletab/wiki/Customizing-with-CSS#css-via-preferences */
+
+	/* Hide the collapsed tab markers and center favicons */
+	:root.sidebar .tab .twisty {
+		visibility: hidden;
+		margin: 0px -3px;
+	}
+
+	/* Space favicons so text is not shown when collapsed */
+	:root.sidebar .tab .favicon {
+		margin-right: 9px;
+	}
+
+	/* Move the new tab button to center when collapsed */
+	:root.sidebar .newtab-button {
+		max-width: 40px;
+		margin-left: 4px;
+	}
+}

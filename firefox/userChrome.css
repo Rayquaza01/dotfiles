@@ -1,0 +1,78 @@
+/* https://github.com/irvinm/Toggle-Native-Tab-Bar/blob/main/README.md#required-entering-css-to-hide-or-show-the-native-tab-bar-into-userchromecss */
+/* Hides the native tab bar and moves window controls to the nav bar. */
+/* Requires the Toggle Native Tab Bar extension: https://addons.mozilla.org/en-US/firefox/addon/toggle-native-tab-bar/ */
+#main-window[titlepreface*=" "] {
+    #TabsToolbar {
+        display: none;
+
+        .titlebar-buttonbox-container {
+            display: none !important;
+        }
+    }
+
+    #nav-bar {
+        .titlebar-buttonbox-container {
+            display: flex !important;
+        }
+    }
+}
+
+/* Based on https://github.com/dchawisher/autohide-firefox-sidebar */
+/* Makes sidebar smaller (45px), and expands it when hovered */
+#sidebar {
+  transition: width 128ms ease !important;
+  transition-delay: 128ms !important;
+  width: 45px !important;
+  /* border-right: 1px solid #000; */
+}
+
+#sidebar-box {
+	width: 45px !important;
+	max-width: none !important;
+	min-width: 0px !important;
+	transition: width 128ms ease !important;
+	transition-delay: 128ms !important;
+}
+
+#sidebar-box:hover {
+	width: 300px !important;
+	transition: width 128ms ease !important;
+}
+
+#sidebar-box:hover > #sidebar {
+  width: 300px !important;
+  transition-delay: 0ms !important
+}
+
+/* https://www.reddit.com/r/FirefoxCSS/comments/77ehp1/comment/dolvvg3/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button */
+/* Hides sidebar header when TST is open. */
+/* Using code to make sidebar header collapsable instead
+/* Remove title section from Tree Style Tabs */
+/* #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] > #sidebar-header { */
+/*      visibility: collapse; */
+/* } */
+
+/* Based on https://www.reddit.com/r/FirefoxCSS/comments/77ehp1/comment/dolvvg3/ */
+/* Make sidebar header collapse unless hovering */
+/* Minimize sidebar header to a light blue stripe (except Bookmarks, History, Sync'd Tabs); appears normally on hover */
+#sidebar-box:not([sidebarcommand="viewBookmarksSidebar"]):not([sidebarcommand="viewHistorySidebar"]):not([sidebarcommand="viewTabsSidebar"])
+#sidebar-header:not(:hover) {
+    max-height: 5px !important;
+    min-height: 5px !important;
+    padding: 0 !important;
+    /* background-color: #7ad !important; */
+    /* background-color: #c64600; */
+    opacity: 0.5 !important;
+}
+
+/** Originally, this only made the sidebar-switcher hidden. Changing it to * also hides the close button */
+#sidebar-box:not([sidebarcommand="viewBookmarksSidebar"]):not([sidebarcommand="viewHistorySidebar"]):not([sidebarcommand="viewTabsSidebar"])
+#sidebar-header:not(:hover) * {
+    /* BAD NEWS: display: none !important; */
+    opacity: 0 !important;
+}
+
+#sidebar-splitter {
+  display: none !important;
+}
+
