@@ -1,9 +1,13 @@
-/* Config for the Tree Style Tabs options page */
-
 @media screen and (max-width: 50px) {
-    /* Disable indentation when collapsed*/
 	:root.left tab-item-substance {
 		margin-left: 0;
+	}
+
+	/* make indent line invisible when collapsed */
+	/* https://addons.mozilla.org/en-US/firefox/addon/tst-indent-line/ */
+	:root.left tab-item {
+		--indent-line-color: transparent;
+		--indent-line-color-active: transparent;
 	}
 
 	/* https://github.com/piroor/treestyletab/wiki/Customizing-with-CSS#css-via-preferences */
@@ -20,8 +24,7 @@
 	}
 }
 
-/* Make the tab favicon and collapsed indicator closer */
+/* Hide the collapsed tab markers and center favicons */
 :root.sidebar .tab .twisty {
-    /* visibility: hidden; */
-    margin: 0px -3px;
+	margin: 0px -3px;
 }
