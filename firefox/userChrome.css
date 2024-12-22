@@ -25,6 +25,9 @@
         transition: width 128ms ease !important;
         transition-delay: 128ms !important;
 
+		/* https://gist.github.com/shvchk/ea637112f88fe29a3f21c141a9fcf709 */
+		z-index: calc(var(--browser-area-z-index-tabbox, 0) + 1);
+
         #sidebar {
             transition: width 128ms ease !important;
             transition-delay: 128ms !important;
@@ -55,7 +58,8 @@
 
 
     #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]:hover {
-        width: 300px !important;
+		/* Don't increase width of sidebar box to make the sidebar float above the page */
+        /* width: 300px !important; */
         transition: width 128ms ease !important;
 
         #sidebar {
