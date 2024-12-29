@@ -79,6 +79,8 @@ if has('nvim')
     " Plug 'folke/todo-comments.nvim'
     " Plug 'folke/which-key.nvim'
 
+    Plug 'lambdalisue/vim-suda'
+
     " NEOVIM LSP PLUGINS
     Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'}
     " Plug 'dcampos/nvim-snippy'
@@ -471,6 +473,18 @@ augroup ObsessionRestore
         \   source Session.vim |
         \ endif
 augroup END
+
+" === VIM SUDA CONFIG ===
+
+if has('nvim')
+    " the :w !sudo tee % trick does not work in neovim
+    " vim-suda provides commands to act as a workaround
+    " vim-eunuch also provides similar commands, but they rely on the tee
+    " trick so they also do not work on neovim
+    " alias suda commands to match eunuch's sudo commands
+    command! SudoEdit SudaRead
+    command! SudoWrite SudaWrite
+endif
 
 " === BEGIN COC CONFIG ===
 
