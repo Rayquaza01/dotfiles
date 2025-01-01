@@ -31,6 +31,8 @@ dotfiles=$(
         editorconfig "" off \
         fd "" off \
         fish "" off \
+        foot "" off \
+        ghostty "" off \
         git "" off \
         tmux "" off \
         vim "" off \
