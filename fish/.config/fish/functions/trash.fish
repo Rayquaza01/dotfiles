@@ -1,8 +1,8 @@
 function trash
     if command -q trash
-        command trash -- "$argv"
+        command trash -- $argv
     else if command -q gio
-        gio trash -- "$argv"
+        gio trash -- $argv
     else
         echo "no trash command available"
     end

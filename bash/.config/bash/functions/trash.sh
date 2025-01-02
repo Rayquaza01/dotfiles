@@ -2,9 +2,9 @@
 
 function trash() {
     if command -v trash &>/dev/null; then
-        command trash -- "$@"
+        command trash -- $@
     elif command -v gio &>/dev/null; then
-        gio trash -- "$@"
+        gio trash -- $@
     else
         echo "no trash command available"
     fi
