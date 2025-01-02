@@ -2,8 +2,8 @@
 
 function rm() {
     if command -v trash &>/dev/null; then
-        trash "$@"
+        command trash $@
     else
-        command rm "$@"
+        command rm $@
     fi
 }
