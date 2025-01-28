@@ -34,6 +34,7 @@ dotfiles=$(
         foot "" off \
         ghostty "" off \
         git "" off \
+        simplevim "" off \
         tmux "" off \
         vim "" off \
         yazi "" off \
@@ -43,7 +44,7 @@ for dotfile in $dotfiles; do
     stow --no-folding --adopt -t ~ -Sv "$dotfile"
 done
 
-if [[ "${dotfiles[*]}" =~ "vim" ]]; then
+if [[ "${dotfiles[*]}" =~ "vim" ]] || [[ "${dotfiles[*]}" =~ "simplevim" ]]; then
     # if gum confirm "Would you like to install vim plug?"; then
     if dialog --yesno "Would you like to install vim plug?" 0 0; then
         echo "Installing vim plug"
