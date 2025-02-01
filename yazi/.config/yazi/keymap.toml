@@ -2,7 +2,7 @@
 
 [[manager.prepend_keymap]]
 on   = "<Enter>"
-run  = "plugin --sync smart-enter"
+run  = "plugin smart-enter"
 desc = "Enter the child directory, or open the file"
 
 [[manager.prepend_keymap]]
@@ -34,7 +34,7 @@ desc = "Jump to a directory or reveal a file using fzf"
 
 [[manager.prepend_keymap]]
 on   = [ "g", "l" ]
-run  = "plugin --sync follow-link"
+run  = "plugin follow-link"
 desc = "Follow the symlink"
 
 # https://yazi-rs.github.io/docs/tips/#close-input-by-esc

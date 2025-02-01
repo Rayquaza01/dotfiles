@@ -1,3 +1,4 @@
+--- @sync entry
 return {
     entry = function()
         -- leave visual mode to save the selection
