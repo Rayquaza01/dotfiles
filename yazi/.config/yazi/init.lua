@@ -1,4 +1,8 @@
 -- === GIT CONFIG ===
+THEME.git = THEME.git or {}
+THEME.git.modified_sign = "M"
+THEME.git.deleted_sign = "D"
+THEME.git.untracked_sign = "?"
 require("git"):setup()
 
 --- === STARSHIP CONFIG ===
