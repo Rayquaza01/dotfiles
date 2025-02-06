@@ -19,7 +19,7 @@ fi
 
 echo "Installing essential packages"
 sudo dnf remove -y firefox
-sudo dnf install -y bat dialog distrobox exa fastfetch fd fish fzf gnome-tweaks nvim stow trash-cli
+sudo dnf install -y bat dialog distrobox exa fastfetch fd fish fzf gnome-tweaks neovim rclone stow trash-cli vim-X11
 brew install gum starship yazi
 flatpak install -y com.mattjakeman.ExtensionManager com.github.tchx84.Flatseal org.mozilla.Firefox
 
