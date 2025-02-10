@@ -11,7 +11,10 @@ echo "Installing homebrew"
 curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
 
 echo "Adding flathub"
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+if ! command -v flatpak &>/dev/null; then
+    sudo dnf install -y flatpak
+fi
+sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 if ! [[ "$PATH" =~ "/home/linuxbrew/.linuxbrew/bin" ]]; then
     export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
