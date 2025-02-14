@@ -81,6 +81,8 @@ if has('nvim')
 
     Plug 'lambdalisue/vim-suda'
 
+    Plug 'kdheepak/lazygit.nvim'
+
     " NEOVIM LSP PLUGINS
     Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'}
     " Plug 'dcampos/nvim-snippy'
