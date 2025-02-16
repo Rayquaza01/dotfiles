@@ -402,6 +402,12 @@ nnoremap <leader>u :MundoToggle<CR>
 
 command! Gpush G push
 
+" === LAZTGIT CONFIG ===
+
+if has('nvim')
+    nnoremap <leader>lg :LazyGit<CR>
+endif
+
 " === ALE CONFIG ===
 
 " disable ale lsp to work better with coc
