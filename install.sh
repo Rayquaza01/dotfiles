@@ -38,6 +38,9 @@ dotfiles=$(
         tmux "" off \
         vim "" off \
         yazi "" off \
+        sway "" off \
+        rofi "" off \
+        waybar "" off \
 )
 
 for dotfile in $dotfiles; do
