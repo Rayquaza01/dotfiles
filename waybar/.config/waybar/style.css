@@ -1,14 +1,13 @@
 @import "macchiato.css";
 
 * {
-  background-color: @surface0;
   font-family: FantasqueSansMono Nerd Font;
   font-size: 14px;
   min-height: 0;
 }
 
 #waybar {
-  background: transparent;
+  background-color: @surface0;
   color: @text;
   /* margin: 0.2rem 0.2rem; */
 }
