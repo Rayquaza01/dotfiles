@@ -262,6 +262,10 @@ bindsym alt+f4 kill
 input * xkb_numlock enabled
 input * xkb_capslock disabled
 
+input type:keyboard {
+    xkb_options ctrl:nocaps
+}
+
 # catppuccin colors
 client.focused           $lavender $base $text  $rosewater $lavender
 client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
