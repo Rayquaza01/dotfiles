@@ -34,13 +34,13 @@ dotfiles=$(
         foot "" off \
         ghostty "" off \
         git "" off \
+        rofi "" off \
         simplevim "" off \
+        sway "" off \
         tmux "" off \
         vim "" off \
-        yazi "" off \
-        sway "" off \
-        rofi "" off \
         waybar "" off \
+        yazi "" off \
 )
 
 for dotfile in $dotfiles; do
