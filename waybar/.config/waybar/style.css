@@ -37,8 +37,7 @@
 }
 
 #workspaces button:hover {
-  color: @sapphire;
-  border-radius: 1rem;
+  background-color: @crust;
 }
 
 #custom-music,
@@ -49,21 +48,21 @@
 #pulseaudio,
 #custom-lock,
 #custom-power,
-#idle_inhibitor {
+#idle_inhibitor,
+#memory,
+#cpu {
   background-color: @surface0;
-  padding: 0.2rem 1rem;
-  /* margin: 0.2rem 0; */
+  padding: 0.1rem 1rem;
+  margin: 0.1rem 0;
 }
 
 #clock {
   color: @text;
   border-radius: 1rem;
-  margin-right: 1rem;
 }
 
 #battery {
-  margin-right: 1rem;
-  border-radius: 0 1rem 1rem 0;
+  /* border-radius: 0 1rem 1rem 0; */
   color: @green;
 }
 
@@ -85,8 +84,7 @@
 
 #pulseaudio {
   color: @maroon;
-  border-radius: 1rem 0px 0px 1rem;
-  margin-left: 1rem;
+  /* border-radius: 1rem 0px 0px 1rem; */
 }
 
 #custom-music {
@@ -95,6 +93,7 @@
 }
 
 #custom-lock {
+  margin-left: 1rem;
   border-radius: 1rem 0px 0px 1rem;
   color: @lavender;
 }
@@ -113,5 +112,15 @@
 }
 
 #idle_inhibitor {
-    border-radius: 1rem;
+  border-radius: 1rem 0 0 1rem;
+}
+
+#cpu {
+  color: @peach;
+  /* border-radius: 1rem 0 0 1rem; */
+}
+
+#memory {
+  color: @sky;
+  border-radius: 0 1rem 1rem 0;
 }
