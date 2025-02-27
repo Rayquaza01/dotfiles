@@ -17,6 +17,7 @@
   margin: 0.2rem;
   background-color: @surface0;
   margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 #workspaces button {
@@ -49,7 +50,9 @@
 #custom-power,
 #idle_inhibitor,
 #memory,
-#cpu {
+#cpu,
+#scratchpad,
+#mode {
   background-color: @surface0;
   padding: 0.1rem 1rem;
   margin: 0.1rem 0;
@@ -122,4 +125,13 @@
 #memory {
   color: @sky;
   /* border-radius: 0 1rem 1rem 0; */
+}
+
+#mode {
+	border-radius: 1rem;
+	margin-right: 1rem;
+}
+
+#scratchpad {
+	border-radius: 1rem;
 }
