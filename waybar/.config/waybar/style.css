@@ -61,7 +61,7 @@
 }
 
 #battery {
-  /* border-radius: 0 1rem 1rem 0; */
+  border-radius: 0 1rem 1rem 0;
   color: @green;
 }
 
@@ -111,15 +111,15 @@
 }
 
 #idle_inhibitor {
-  border-radius: 1rem 0 0 1rem;
+  /* border-radius: 1rem 0 0 1rem; */
 }
 
 #cpu {
   color: @peach;
-  /* border-radius: 1rem 0 0 1rem; */
+  border-radius: 1rem 0 0 1rem;
 }
 
 #memory {
   color: @sky;
-  border-radius: 0 1rem 1rem 0;
+  /* border-radius: 0 1rem 1rem 0; */
 }

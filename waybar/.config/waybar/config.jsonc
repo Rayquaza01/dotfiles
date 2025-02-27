@@ -5,7 +5,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["tray", "idle_inhibitor","pulseaudio", "backlight", "battery", "cpu", "memory", "custom/lock", "custom/power"],
+    "modules-right": ["tray", "cpu", "memory", "idle_inhibitor","pulseaudio", "backlight", "battery", "custom/lock", "custom/power"],
     "sway/workspaces": {
          "disable-scroll": true,
          "sort-by-name": true,
@@ -46,10 +46,10 @@
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{icon}  {volume}%",
-        "format-muted": "",
+        "format": "{icon}",
+        "format-muted": "",
         "format-icons": {
-            "default": ["", "", " "]
+            "default": ["", "", ""],
         },
         "on-click": "pavucontrol"
     },
