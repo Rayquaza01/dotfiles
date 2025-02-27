@@ -27,7 +27,7 @@
     "clock": {
         "timezone": "",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%a %b %d  %I:%M %p}"
+        "format": "<b>{:%a %b %d  %I:%M %p}</b>"
     },
     "backlight": {
         "device": "intel_backlight",
