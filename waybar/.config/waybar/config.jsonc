@@ -27,7 +27,7 @@
     "clock": {
         "timezone": "",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%a %b %d %I:%M %p}"
+        "format": "{:%a %b %d  %I:%M %p}"
     },
     "backlight": {
         "device": "intel_backlight",
@@ -46,7 +46,7 @@
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{icon} {volume}%",
+        "format": "{icon}  {volume}%",
         "format-muted": "",
         "format-icons": {
             "default": ["", "", " "]
