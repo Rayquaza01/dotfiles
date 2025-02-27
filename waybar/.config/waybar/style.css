@@ -1,6 +1,7 @@
 @import "macchiato.css";
 
 * {
+  background-color: @surface0;
   font-family: FantasqueSansMono Nerd Font;
   font-size: 14px;
   min-height: 0;
@@ -28,6 +29,7 @@
 #workspaces button.focused {
   color: @subtext;
   border-radius: 1rem;
+  font-weight: bold;
 }
 
 #workspaces button.urgent {
