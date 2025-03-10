@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-export BAT_THEME="Catppuccin Mocha"
+export BAT_THEME="Catppuccin Macchiato"
