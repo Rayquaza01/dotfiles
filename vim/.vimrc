@@ -962,6 +962,7 @@ lua << EOF
             --position = 'inline',
             sign = false,
         },
+        link = { enabled = false },
     })
 
     vim.treesitter.language.register('markdown', 'vimwiki')
