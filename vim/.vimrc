@@ -14,6 +14,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-abolish'
 
 " Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
