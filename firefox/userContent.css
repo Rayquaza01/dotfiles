@@ -5,3 +5,19 @@
     background-color: rgb(40, 42, 48); /* https://github.com/piroor/treestyletab/blob/0eede581d763f92344fe64b1c042839f3b8ca955/webextensions/resources/ui-color.css#L198 */
   }
 }
+
+@-moz-document url("about:newtab"), url("about:home") {
+	body {
+		color-scheme: dark !important;
+	}
+
+	.weather {
+		background-color: color-mix(in srgb, var(--newtab-background-color-secondary) 30%, transparent);
+		backdrop-filter: blur(10px);
+		border-radius: var(--border-radius-medium);
+	}
+
+	span.title-label {
+		display: none !important;
+	}
+}
