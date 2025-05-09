@@ -17,7 +17,17 @@
 		border-radius: var(--border-radius-medium);
 	}
 
-	span.title-label {
+	.weatherInfoLink:hover,
+	.weatherButtonContextMenuWrapper:hover {
+		background-color: color-mix(in srgb, var(--newtab-background-color-secondary) 40%, transparent) !important;
+	}
+
+	.title-label {
 		display: none !important;
+	}
+
+	.tile {
+		background-color: color-mix(in srgb, var(--newtab-background-color-secondary) 40%, transparent) !important;
+		backdrop-filter: blur(10px);
 	}
 }
