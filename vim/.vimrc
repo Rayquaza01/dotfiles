@@ -691,6 +691,8 @@ endif
 if has('nvim')
 
 lua << EOF
+    vim.diagnostic.config({ virtual_text = true })
+
     -- === NVIMTREE CONFIG ===
     -- require('nvim-tree').setup()
 
