@@ -1,38 +1,38 @@
 "$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = "<Enter>"
 run  = "plugin smart-enter"
 desc = "Enter the child directory, or open the file"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = "F"
 run  = "plugin smart-filter"
 desc = "Smart Filter"
 
 # https://yazi-rs.github.io/docs/tips/#cd-to-git-root
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = [ "g", "r" ]
 run  = '''shell 'ya pub dds-cd --str "$(git rev-parse --show-toplevel)"' --confirm'''
 desc = "Go to the root of the git repository"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = [ "g", "p" ]
 run  = "cd ~/Projects"
 desc = "Jump to projects folder"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = [ "g", "/" ]
 run  = "cd /"
 desc = "Jump to root"
 
 # replace zoxide binding with fzf since i don't use zoxide
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = "z"
 run  = "plugin fzf"
 desc = "Jump to a directory or reveal a file using fzf"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = [ "g", "l" ]
 run  = "plugin follow-link"
 desc = "Follow the symlink"
