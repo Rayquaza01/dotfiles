@@ -1095,20 +1095,19 @@ lua << EOF
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
     -- === LSP CONFIG CONFIG ===
-    local lspconfig = require('lspconfig')
-    lspconfig.clangd.setup({ capabilities = capabilities })
-    lspconfig.cssls.setup({ capabilities = capabilities })
-    lspconfig.dprint.setup({ capabilities = capabilities })
-    lspconfig.fish_lsp.setup({ capabilities = capabilities })
-    lspconfig.gdscript.setup({ capabilities = capabilities })
-    lspconfig.html.setup({ capabilities = capabilities })
-    lspconfig.jsonls.setup({ capabilities = capabilities })
-    lspconfig.lua_ls.setup({ capabilities = capabilities })
-    lspconfig.pyright.setup({ capabilities = capabilities })
-    lspconfig.rust_analyzer.setup({ capabilities = capabilities })
-    lspconfig.taplo.setup({ capabilities = capabilities })
-    lspconfig.ts_ls.setup({ capabilities = capabilities })
-    lspconfig.vimls.setup({ capabilities = capabilities })
+    vim.lsp.enable('clangd')
+    vim.lsp.enable('cssls')
+    vim.lsp.enable('dprint')
+    vim.lsp.enable('fish_lsp')
+    vim.lsp.enable('gdscript')
+    vim.lsp.enable('html')
+    vim.lsp.enable('jsonls')
+    vim.lsp.enable('lua_ls')
+    vim.lsp.enable('pyright')
+    vim.lsp.enable('rust_analyzer')
+    vim.lsp.enable('taplo')
+    vim.lsp.enable('ts_ls')
+    vim.lsp.enable('vimls')
 EOF
 
 endif
