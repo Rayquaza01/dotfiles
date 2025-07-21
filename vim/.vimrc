@@ -900,6 +900,7 @@ lua << EOF
 
     -- === FZF LUA CONFIG ===
     require('fzf-lua').setup({ 'fzf-vim' })
+    require('fzf-lua').register_ui_select()
 
     -- === LUALINE CONFIG ===
     require('lualine').setup({
