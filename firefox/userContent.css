@@ -7,12 +7,14 @@
 }
 
 @-moz-document url("about:newtab"), url("about:home") {
+	.section-title, .wordmark, .weather {
+		color-scheme: dark;
+	}
+
 	.weather {
 		background-color: color-mix(in srgb, var(--newtab-background-color-secondary) 30%, transparent);
 		backdrop-filter: blur(10px);
 		border-radius: var(--border-radius-medium);
-
-		color-scheme: dark;
 	}
 
 	.weatherInfoLink:hover,
