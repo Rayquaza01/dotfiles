@@ -13,7 +13,7 @@ desc = "Smart Filter"
 # https://yazi-rs.github.io/docs/tips/#cd-to-git-root
 [[mgr.prepend_keymap]]
 on   = [ "g", "r" ]
-run  = '''shell 'ya pub dds-cd --str "$(git rev-parse --show-toplevel)"' --confirm'''
+run  = 'shell -- ya emit cd $(git rev-parse --show-toplevel)'
 desc = "Go to the root of the git repository"
 
 [[mgr.prepend_keymap]]
