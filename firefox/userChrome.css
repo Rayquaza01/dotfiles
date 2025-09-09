@@ -18,7 +18,8 @@
 
     /* Based on https://github.com/dchawisher/autohide-firefox-sidebar */
     /* Makes sidebar smaller (45px), and expands it when hovered */
-    #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] {
+    #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"],
+    #sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] {
         width: 45px !important;
         max-width: none !important;
         min-width: 0px !important;
@@ -52,12 +53,14 @@
     }
 
     /* hide sidebar splitter, only when tst is open */
-    #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] + #sidebar-splitter {
+    #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] + #sidebar-splitter,
+    #sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] + #sidebar-splitter {
         display: none !important;
     }
 
 
-    #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]:hover {
+    #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]:hover,
+    #sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:hover {
 		/* Don't increase width of sidebar box to make the sidebar float above the page */
         /* width: 300px !important; */
         transition: width 128ms ease !important;
