@@ -22,8 +22,8 @@ fi
 
 echo "Installing essential packages"
 sudo dnf remove -y firefox
-sudo dnf install -y bat dialog distrobox exa fastfetch fd fish fzf gnome-tweaks input-remapper neovim rclone stow trash-cli vim-X11
-brew install gum starship yazi
+sudo dnf install -y bat dialog distrobox fastfetch fd fish fzf gnome-tweaks input-remapper neovim rclone stow trash-cli vim-X11 tmux
+brew install gum starship yazi eza
 flatpak install -y com.mattjakeman.ExtensionManager com.github.tchx84.Flatseal org.mozilla.firefox
 
 echo "Installing nerd fonts"
@@ -77,18 +77,4 @@ if gum confirm "Configure GNOME?"; then
     gsettings set org.gnome.desktop.interface gtk-enable-primary-paste false
     gsettings set org.gnome.desktop.interface show-battery-percentage true
     gsettings set org.gnome.desktop.interface accent-color 'purple'
-
-    # blur my shell settings
-    # disable panel blur
-    gsettings set /org/gnome/shell/extensions/blur-my-shell/panel/blur false
-    # don't style overview components
-    gsettings set /org/gnome/shell/extensions/blur-my-shell/overview/style-components 0
-
-    # just perfection settings
-    # always show workspace switcher
-    gsettings set /org/gnome/shell/extensions/just-perfection/workspace-switcher-should-show true
-    # hide window picker caption
-    gsettings set /org/gnome/shell/extensions/just-perfection/window-preview-caption false
-    # starup to desktop, not overview
-    gsettings set /org/gnome/shell/extensions/just-perfection/startup-status 0
 fi
