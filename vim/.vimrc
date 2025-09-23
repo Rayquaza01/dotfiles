@@ -52,6 +52,8 @@ Plug 'moll/vim-bbye'
 
 Plug 'vimwiki/vimwiki'
 
+Plug 'google/vim-searchindex'
+
 if has('nvim')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
