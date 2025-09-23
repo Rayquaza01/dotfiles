@@ -468,7 +468,12 @@ if has('nvim')
 endif
 
 " === VIM WIKI CONFIG ===
-let g:vimwiki_list = [{ 'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': 'md' }]
+let g:vimwiki_list = [{
+            \ 'path': '~/Obsidian/Vault/',
+            \ 'syntax': 'markdown', 'ext': 'md',
+            \ 'index': 'Index',
+            \ 'diary_rel_path': 'Diary/'
+            \ }]
 let g:vimwiki_global_ext = 0
 
 " === OBSESSION CONFIG ===
