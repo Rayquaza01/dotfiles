@@ -61,6 +61,10 @@ if [[ "${dotfiles[*]}" =~ "tmux" ]]; then
         if dialog --yesno "Would you like to install tmux plugin manager?" 0 0; then
             echo "Installing tmux plugin manager"
             git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+            # install catppuccin theme manually
+            mkdir -p ~/.config/tmux/plugins/catppuccin
+            git clone -b v2.1.3 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
         fi
     fi
 fi
