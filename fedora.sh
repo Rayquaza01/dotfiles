@@ -22,9 +22,33 @@ fi
 
 echo "Installing essential packages"
 sudo dnf remove -y firefox
-sudo dnf install -y bat dialog distrobox fastfetch fd fish fzf gnome-tweaks input-remapper neovim rclone stow trash-cli vim-X11 tmux
-brew install gum starship yazi eza
-flatpak install -y com.mattjakeman.ExtensionManager com.github.tchx84.Flatseal org.mozilla.firefox
+
+sudo dnf install -y \
+    bat \
+    dialog \
+    distrobox \
+    fastfetch \
+    fd \
+    fish \
+    fzf \
+    gnome-tweaks \
+    gum \
+    input-remapper \
+    neovim \
+    rclone \
+    stow \
+    tmux \
+    trash-cli \
+    vim-X11
+
+brew install \
+    starship \
+    yazi \
+    eza
+
+flatpak install -y \
+    com.github.tchx84.Flatseal \
+    org.mozilla.firefox
 
 echo "Installing nerd fonts"
 curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash
