@@ -277,7 +277,7 @@ endif
 
 " === ULTISNIPS CONFIG ===
 
-if !has('nvim')
+if !has('nvim') && has('python3')
     let g:UltiSnipsExpandTrigger="<tab>"
     let g:UltiSnipsJumpForwardTrigger="<c-j>"
     let g:UltiSnipsJumpBackwardTrigger="<c-k>"
