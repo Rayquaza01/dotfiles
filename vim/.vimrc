@@ -118,7 +118,9 @@ if has('nvim')
 
     Plug 'MeanderingProgrammer/render-markdown.nvim'
 else
-    Plug 'SirVer/ultisnips'
+    if has('python3')
+        Plug 'SirVer/ultisnips'
+    endif
 
     Plug 'junegunn/goyo.vim'
 
@@ -277,7 +279,7 @@ endif
 
 " === ULTISNIPS CONFIG ===
 
-if !has('nvim') && has('python3')
+if !has('nvim')
     let g:UltiSnipsExpandTrigger="<tab>"
     let g:UltiSnipsJumpForwardTrigger="<c-j>"
     let g:UltiSnipsJumpBackwardTrigger="<c-k>"
