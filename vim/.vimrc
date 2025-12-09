@@ -370,6 +370,10 @@ endif
 nnoremap <leader>b :Buffers<CR>
 nnoremap <F1> :Buffers<CR>
 
+" override unimpaireds bindings because they are counterproductive
+nnoremap ]b :Buffers<CR>
+nnoremap [b :Buffers<CR>
+
 if !has('nvim')
     inoremap <expr> <c-x><c-f> fzf#vim#complete#path('fd')
 endif
