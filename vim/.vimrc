@@ -69,7 +69,7 @@ if has('nvim')
 
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-tree/nvim-web-devicons'
-    Plug 'willothy/nvim-cokeline'
+    " Plug 'willothy/nvim-cokeline'
 
     Plug 'nvim-lualine/lualine.nvim'
 
@@ -550,106 +550,106 @@ lua << EOF
 
     -- === COKELINE CONFIG ===
 
-    local macchiato = require("catppuccin.palettes").get_palette("macchiato")
+    -- local macchiato = require("catppuccin.palettes").get_palette("macchiato")
 
-    local get_hex = require('cokeline.hlgroups').get_hl_attr
+    -- local get_hex = require('cokeline.hlgroups').get_hl_attr
 
-    require('cokeline').setup({
-        default_hl = {
-            fg = function (buffer)
-                return buffer.is_focused and macchiato.text or get_hex('Comment', 'fg')
-            end,
-            bg = function(buffer)
-                if buffer.buf_hovered then
-                    return macchiato.surface1
-                else
-                    return buffer.is_focused and macchiato.surface1 or macchiato.surface0
-                end
-            end
-        },
+    -- require('cokeline').setup({
+    --     default_hl = {
+    --         fg = function (buffer)
+    --             return buffer.is_focused and macchiato.text or get_hex('Comment', 'fg')
+    --         end,
+    --         bg = function(buffer)
+    --             if buffer.buf_hovered then
+    --                 return macchiato.surface1
+    --             else
+    --                 return buffer.is_focused and macchiato.surface1 or macchiato.surface0
+    --             end
+    --         end
+    --     },
 
-        components = {
-            {
-                text = '',
-                fg = function(buffer)
-                    return buffer.is_focused and macchiato.mauve or macchiato.overlay2
-                end,
-                bg = macchiato.mantle
-            },
-            {
-                text = function(buffer) return ' ' .. buffer.devicon.icon  end,
-                fg = function(buffer)
-                    -- return buffer.is_focused and buffer.devicon.color or get_hex('Comment', 'fg')
-                    return buffer.devicon.color
-                end,
-            },
-            {
-                text = function(buffer) return buffer.unique_prefix end,
-                fg = get_hex('Comment', 'fg'),
-                italic = true,
-            },
-            {
-                text = function(buffer) return buffer.filename .. ' ' end,
-                bold = function(buffer) return buffer.is_focused end,
-            },
-            {
-                text = function(buffer)
-                    if buffer.diagnostics.errors > 0 then
-                        return  ' ' .. buffer.diagnostics.errors .. ' '
-                    end
+    --     components = {
+    --         {
+    --             text = '',
+    --             fg = function(buffer)
+    --                 return buffer.is_focused and macchiato.mauve or macchiato.overlay2
+    --             end,
+    --             bg = macchiato.mantle
+    --         },
+    --         {
+    --             text = function(buffer) return ' ' .. buffer.devicon.icon  end,
+    --             fg = function(buffer)
+    --                 -- return buffer.is_focused and buffer.devicon.color or get_hex('Comment', 'fg')
+    --                 return buffer.devicon.color
+    --             end,
+    --         },
+    --         {
+    --             text = function(buffer) return buffer.unique_prefix end,
+    --             fg = get_hex('Comment', 'fg'),
+    --             italic = true,
+    --         },
+    --         {
+    --             text = function(buffer) return buffer.filename .. ' ' end,
+    --             bold = function(buffer) return buffer.is_focused end,
+    --         },
+    --         {
+    --             text = function(buffer)
+    --                 if buffer.diagnostics.errors > 0 then
+    --                     return  ' ' .. buffer.diagnostics.errors .. ' '
+    --                 end
 
-                    return ''
-                end,
-                fg = get_hex('DiagnosticError', 'fg') or get_hex('LspDiagnosticsDefaultError', 'fg') or get_hex('DiffDelete', 'fg')
-            },
-            {
-                text = function(buffer)
-                    if buffer.diagnostics.warnings > 0 then
-                        return '󰀪 ' .. buffer.diagnostics.warnings .. ' '
-                    end
+    --                 return ''
+    --             end,
+    --             fg = get_hex('DiagnosticError', 'fg') or get_hex('LspDiagnosticsDefaultError', 'fg') or get_hex('DiffDelete', 'fg')
+    --         },
+    --         {
+    --             text = function(buffer)
+    --                 if buffer.diagnostics.warnings > 0 then
+    --                     return '󰀪 ' .. buffer.diagnostics.warnings .. ' '
+    --                 end
 
-                    return ''
-                end,
-                fg = get_hex('DiagnosticWarn', 'fg') or get_hex('LspDiagnosticsDefaultWarning', 'fg') or get_hex('DiffText', 'fg')
-            },
-            {
-                text = function(buffer)
-                    if buffer.diagnostics.infos > 0 then
-                        return '󰋽 ' .. buffer.diagnostics.infos .. ' '
-                    end
+    --                 return ''
+    --             end,
+    --             fg = get_hex('DiagnosticWarn', 'fg') or get_hex('LspDiagnosticsDefaultWarning', 'fg') or get_hex('DiffText', 'fg')
+    --         },
+    --         {
+    --             text = function(buffer)
+    --                 if buffer.diagnostics.infos > 0 then
+    --                     return '󰋽 ' .. buffer.diagnostics.infos .. ' '
+    --                 end
 
-                    return ''
-                end,
-                fg = get_hex('DiagnosticInfo', 'fg') or get_hex('LspDiagnosticsDefaultInformation', 'fg') or get_hex('Normal', 'fg')
-            },
-            {
-                text = function(buffer)
-                    if buffer.is_hovered then
-                        return buffer.is_modified and '' or '󰅙'
-                    else
-                        return buffer.is_modified and '' or '󰅚'
-                    end
-                end,
-                on_click = function(_, _, _, _, buffer)
-                    buffer:delete()
-                end
-            },
-            {
-                text = ' '
-            },
-            {
-                text = ' ',
-                fg = function (buffer)
-                    if buffer.buf_hovered then
-                        return macchiato.surface1
-                    else
-                        return buffer.is_focused and macchiato.surface1 or macchiato.surface0
-                    end
-                end,
-                bg = macchiato.mantle
-            },
-        }
-    })
+    --                 return ''
+    --             end,
+    --             fg = get_hex('DiagnosticInfo', 'fg') or get_hex('LspDiagnosticsDefaultInformation', 'fg') or get_hex('Normal', 'fg')
+    --         },
+    --         {
+    --             text = function(buffer)
+    --                 if buffer.is_hovered then
+    --                     return buffer.is_modified and '' or '󰅙'
+    --                 else
+    --                     return buffer.is_modified and '' or '󰅚'
+    --                 end
+    --             end,
+    --             on_click = function(_, _, _, _, buffer)
+    --                 buffer:delete()
+    --             end
+    --         },
+    --         {
+    --             text = ' '
+    --         },
+    --         {
+    --             text = ' ',
+    --             fg = function (buffer)
+    --                 if buffer.buf_hovered then
+    --                     return macchiato.surface1
+    --                 else
+    --                     return buffer.is_focused and macchiato.surface1 or macchiato.surface0
+    --                 end
+    --             end,
+    --             bg = macchiato.mantle
+    --         },
+    --     }
+    -- })
 
     -- === AUTO PAIRS CONFIG ===
     require('nvim-autopairs').setup({
@@ -736,14 +736,14 @@ lua << EOF
             lualine_y = { 'progress' },
             lualine_z = { 'location' }
         },
-        -- tabline = {
-        --     lualine_a = {'buffers'},
-        --     lualine_b = {},
-        --     lualine_c = {},
-        --     lualine_x = {},
-        --     lualine_y = {},
-        --     lualine_z = {'tabs'}
-        -- },
+        tabline = {
+            lualine_a = {'buffers'},
+            lualine_b = {},
+            lualine_c = {},
+            lualine_x = {},
+            lualine_y = {},
+            lualine_z = {'tabs'}
+        },
         inactive_sections = {
             lualine_a = {},
             lualine_b = {},
