@@ -1,5 +1,7 @@
 "$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
 
+mgr.sort_by = "natural"
+
 [[plugin.prepend_fetchers]]
 id   = "git"
 name = "*"
