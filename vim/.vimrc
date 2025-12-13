@@ -117,6 +117,8 @@ if has('nvim')
     Plug 'mikavilpas/yazi.nvim'
 
     Plug 'MeanderingProgrammer/render-markdown.nvim'
+
+    Plug 'nvim-mini/mini.nvim'
 else
     if has('python3')
         Plug 'SirVer/ultisnips'
@@ -801,6 +803,9 @@ lua << EOF
     })
 
     vim.treesitter.language.register('markdown', 'vimwiki')
+
+    -- === MINI AI CONFIG ===
+    require('mini.ai').setup()
 
     -- === LUASNIP CONFIG ===
     require("luasnip.loaders.from_snipmate").lazy_load()
