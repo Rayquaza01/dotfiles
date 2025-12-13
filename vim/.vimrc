@@ -35,7 +35,6 @@ Plug 'junegunn/gv.vim'
 Plug 'easymotion/vim-easymotion'
 
 " Plug 'junegunn/vim-peekaboo'
-Plug 'junegunn/vim-easy-align'
 
 Plug 'dense-analysis/ale'
 
@@ -138,6 +137,8 @@ else
 
     " Plug 'francoiscabrol/ranger.vim'
     Plug 'chriszarate/yazi.vim'
+
+    Plug 'junegunn/vim-easy-align'
 endif
 
 call plug#end()
@@ -804,8 +805,9 @@ lua << EOF
 
     vim.treesitter.language.register('markdown', 'vimwiki')
 
-    -- === MINI AI CONFIG ===
+    -- === MINI CONFIG ===
     require('mini.ai').setup()
+    require('mini.align').setup()
 
     -- === LUASNIP CONFIG ===
     require("luasnip.loaders.from_snipmate").lazy_load()
