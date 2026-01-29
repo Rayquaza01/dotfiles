@@ -1,19 +1,19 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "d1c8baa"
-hash = "63b6c222bf2103b3023389dde5e2ecfe"
+rev = "6f50636"
+hash = "270915fa8282a19908449530ff66f7e2"
 
 [[plugin.deps]]
 use = "Rolv-Apneseth/starship"
-rev = "a63550b"
-hash = "c2021386289a0cbb3e152a052f67c177"
+rev = "eca1861"
+hash = "e519d894e94ded741e06aae4d4775981"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-filter"
-rev = "d1c8baa"
-hash = "bcda8eeb3f4013bae156aecabfc745e8"
+rev = "6f50636"
+hash = "407d19bc4fb46eff5fa8ff8337644847"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-macchiato"
-rev = "2d73b79"
-hash = "86f1eb7e792533c80b34cdff4e191f41"
+rev = "5e0e49e"
+hash = "b069dba45e199684b16fa12d385642ed"
