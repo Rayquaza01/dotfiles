@@ -5,7 +5,7 @@ return {
       local h = cx.active.current.hovered
       local original_url = h.link_to
       if h and original_url then
-         ya.manager_emit("reveal", { original_url })
+         ya.mgr_emit("reveal", { original_url })
       end
    end,
 }
